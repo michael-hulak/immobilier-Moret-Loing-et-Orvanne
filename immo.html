@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael HULAK - Conseiller Immobilier iad France à Moret-Loing-et-Orvanne</title>
+    <meta name="description" content="Conseiller immobilier indépendant iad France à Moret-Loing-et-Orvanne, Saint-Mammès, Écuelles et environs. Estimation offerte, achat et vente de biens immobiliers en Seine-et-Marne.">
+    <meta name="robots" content="index, follow">
+
+    <!-- Données structurées Google (SEO Local) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "Michael HULAK - Conseiller Immobilier iad France",
+      "image": "https://votre-pseudo.github.io/immobilier-morevan/photo.jpg",
+      "telephone": "+33609208810",
+      "email": "michael.hulak@iadfrance.fr",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Moret-Loing-et-Orvanne",
+        "postalCode": "77250",
+        "addressRegion": "Seine-et-Marne",
+        "addressCountry": "FR"
+      },
+      "areaServed": ["Moret-Loing-et-Orvanne", "Saint-Mammès", "Écuelles", "Veneux-les-Sablons", "Montigny-sur-Loing"],
+      "priceRange": "€€"
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary: #002b49;
+            --accent: #00a3e0;
+            --light: #f4f7f9;
+            --dark: #1e293b;
+            --gray: #64748b;
+            --success: #10b981;
+            --error: #ef4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { color: var(--dark); background-color: #fff; line-height: 1.6; }
+        header { background: linear-gradient(rgba(0, 43, 73, 0.90), rgba(0, 43, 73, 0.90)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat; color: white; padding: 80px 20px; text-align: center; }
+        .hero-content { max-width: 800px; margin: 0 auto; }
+        .agent-photo { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent); margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); background-color: #ccc; }
+        .badge { background-color: var(--accent); color: white; padding: 6px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: bold; display: inline-block; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+        h1 { font-size: 2.3rem; margin-bottom: 10px; }
+        p.subtitle { font-size: 1.2rem; opacity: 0.9; margin-bottom: 30px; }
+        .cta-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        .btn { display: inline-block; padding: 12px 28px; border-radius: 6px; text-decoration: none; font-weight: bold; border: none; cursor: pointer; transition: all 0.3s ease; }
+        .btn-primary { background-color: var(--accent); color: white; }
+        .btn-primary:hover { background-color: #0082b3; }
+        .btn-secondary { background-color: white; color: var(--primary); }
+        .btn-secondary:hover { background-color: var(--light); }
+        section { padding: 60px 20px; max-width: 1100px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 40px; }
+        .section-title h2 { font-size: 2rem; color: var(--primary); }
+        .services-grid, .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .card, .review-card { background: var(--light); border-radius: 8px; padding: 30px; border: 1px solid #e2e8f0; }
+        .card h3 { color: var(--primary); margin-bottom: 15px; }
+        .review-card { border-left: 5px solid var(--accent); display: flex; flex-direction: column; justify-content: space-between; }
+        .stars { color: #f59e0b; font-size: 1.2rem; margin-bottom: 15px; }
+        .review-text { font-style: italic; }
+        .review-author { font-weight: bold; color: var(--primary); margin-top: 20px; text-align: right; font-size: 0.95rem; }
+        .forms-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 20px; }
+        .form-card { background: var(--light); padding: 30px; border-radius: 12px; border: 1px solid #e2e8f0; }
+        .form-card h3 { color: var(--primary); margin-bottom: 20px; font-size: 1.4rem; border-bottom: 2px solid var(--accent); padding-bottom: 8px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 0.9rem; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 1rem; }
+        .form-group textarea { resize: vertical; height: 100px; }
+        .form-row { display: flex; gap: 10px; }
+        .form-row .form-group { flex: 1; }
+        .form-status { margin-top: 15px; padding: 12px; border-radius: 6px; font-size: 0.9rem; display: none; text-align: center; }
+        .form-status.success { display: block; background-color: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
+        .form-status.error { display: block; background-color: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
+        .direct-contact { background-color: var(--light); border-radius: 12px; padding: 30px; text-align: center; margin-top: 40px; border: 1px solid #e2e8f0; }
+        .direct-contact-info { display: flex; justify-content: center; gap: 30px; margin-top: 15px; flex-wrap: wrap; font-size: 1.1rem; }
+        .direct-contact-info a { color: var(--primary); text-decoration: none; font-weight: bold; }
+        footer { text-align: center; padding: 20px; font-size: 0.85rem; color: var(--gray); border-top: 1px solid #eee; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="hero-content">
+            <img src="photo.jpg" onerror="this.src='photo.png'" alt="Michael HULAK Conseiller Immobilier" class="agent-photo">
+            <div><span class="badge">iad France</span></div>
+            <h1>Michael HULAK</h1>
+            <p class="subtitle">Conseiller Immobilier à Moret-Loing-et-Orvanne & secteur Sud 77</p>
+            <div class="cta-buttons">
+                <a href="#estimation" class="btn btn-primary">Estimer mon bien</a>
+                <a href="#contact" class="btn btn-secondary">Me contacter</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="services">
+        <div class="section-title">
+            <h2>Mes Services en Seine-et-Marne</h2>
+            <p>Un accompagnement sur-mesure à Moret-Loing-et-Orvanne, Saint-Mammès, Écuelles et environs.</p>
+        </div>
+        <div class="services-grid">
+            <div class="card">
+                <h3>Vente de biens</h3>
+                <p>Valorisation, stratégie de diffusion optimale sur plus de 100 portails et sélection d'acquéreurs qualifiés.</p>
+            </div>
+            <div class="card">
+                <h3>Achat & Recherche</h3>
+                <p>Analyse précise de vos besoins et sélection ciblée de biens sur le marché local.</p>
+            </div>
+            <div class="card">
+                <h3>Avis de Valeur offert</h3>
+                <p>Estimation immobilière rigoureuse basée sur les dernières transactions réelles de votre secteur.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="avis">
+        <div class="section-title">
+            <h2>Avis Clients</h2>
+            <p>La satisfaction de mes clients est ma priorité.</p>
+        </div>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">« Un grand merci à Michael pour son accompagnement, son écoute et sa grande disponibilité tout au long de la vente de notre maison. »</p>
+                <p class="review-author">— Client Vérifié</p>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">« Professionnel, réactif et très bon connaisseur du secteur de Moret-Loing-et-Orvanne. Je recommande les yeux fermés. »</p>
+                <p class="review-author">— Client Vérifié</p>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">« Estimation juste et vente réalisée rapidement dans les meilleures conditions. Merci pour la rigueur. »</p>
+                <p class="review-author">— Client Vérifié</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="https://www.iadfrance.fr/conseiller-immobilier/michael.hulak" target="_blank" class="btn btn-secondary" style="border: 1px solid var(--primary);">
+                ⭐ Consulter mes avis certifiés sur iad France
+            </a>
+        </div>
+    </section>
+
+    <section id="estimation">
+        <div class="section-title">
+            <h2>Votre Projet Immobilier</h2>
+            <p>Demandez une estimation offerte sous 48h ou envoyez-moi un message direct.</p>
+        </div>
+
+        <div class="forms-container">
+            <div class="form-card">
+                <h3>🏠 Demande d'estimation offerte</h3>
+                <form id="estimationForm" action="https://formspree.io/f/xvkggpzk" method="POST">
+                    <div class="form-group">
+                        <label for="type-bien">Type de bien</label>
+                        <select name="type_de_bien" id="type-bien" required>
+                            <option value="">Sélectionnez...</option>
+                            <option value="maison">Maison</option>
+                            <option value="appartement">Appartement</option>
+                            <option value="terrain">Terrain</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="surface">Surface approx. (m²)</label>
+                            <input type="number" name="surface" id="surface" placeholder="ex: 95" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pieces">Pièces</label>
+                            <input type="number" name="pieces" id="pieces" placeholder="ex: 5">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ville">Ville / Code Postal</label>
+                        <input type="text" name="ville" id="ville" placeholder="ex: 77250 Moret-Loing-et-Orvanne" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nom-est">Nom complet</label>
+                        <input type="text" name="nom" id="nom-est" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email-est">Email</label>
+                            <input type="email" name="email" id="email-est" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tel-est">Téléphone</label>
+                            <input type="tel" name="telephone" id="tel-est" required>
+                        </div>
+                    </div>
+
+                    <input type="text" name="_gotcha" style="display:none !important;" tabindex="-1" autocomplete="off">
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Obtenir mon estimation</button>
+                    <div id="estimationStatus" class="form-status"></div>
+                </form>
+            </div>
+
+            <div class="form-card" id="contact">
+                <h3>✉️ Me contacter</h3>
+                <form id="contactForm" action="https://formspree.io/f/xvkggpzk" method="POST">
+                    <div class="form-group">
+                        <label for="nom-contact">Nom complet</label>
+                        <input type="text" name="nom" id="nom-contact" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email-contact">Email</label>
+                        <input type="email" name="email" id="email-contact" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tel-contact">Téléphone</label>
+                        <input type="tel" name="telephone" id="tel-contact">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Votre message</label>
+                        <textarea name="message" id="message" placeholder="Décrivez votre projet..." required></textarea>
+                    </div>
+
+                    <input type="text" name="_gotcha" style="display:none !important;" tabindex="-1" autocomplete="off">
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Envoyer le message</button>
+                    <div id="contactStatus" class="form-status"></div>
+                </form>
+            </div>
+        </div>
+
+        <div class="direct-contact">
+            <h3>Contact direct</h3>
+            <div class="direct-contact-info">
+                <div>📞 <a href="tel:+33609208810">06 09 20 88 10</a></div>
+                <div>✉️ <a href="mailto:michael.hulak@iadfrance.fr">michael.hulak@iadfrance.fr</a></div>
+                <div>📍 Moret-Loing-et-Orvanne (77250)</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; Michael HULAK — Agent commercial indépendant immatriculé au RSAC de Melun (N° 450 799 671) pour le réseau iad France.</p>
+    </footer>
+
+    <script>
+        function setupFormSubmit(formId, statusId, successMsg) {
+            const form = document.getElementById(formId);
+            const status = document.getElementById(statusId);
+
+            form.addEventListener("submit", async function(e) {
+                e.preventDefault();
+                const btn = form.querySelector('button[type="submit"]');
+                const originalBtnText = btn.textContent;
+                
+                btn.disabled = true;
+                btn.textContent = "Envoi en cours...";
+                status.className = "form-status";
+                status.style.display = "none";
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: form.method,
+                        body: new FormData(form),
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    if (response.ok) {
+                        status.textContent = successMsg;
+                        status.className = "form-status success";
+                        form.reset();
+                    } else {
+                        status.textContent = "Une erreur est survenue. Veuillez réessayer.";
+                        status.className = "form-status error";
+                    }
+                } catch (error) {
+                    status.textContent = "Erreur de connexion. Veuillez réessayer.";
+                    status.className = "form-status error";
+                } finally {
+                    btn.disabled = false;
+                    btn.textContent = originalBtnText;
+                }
+            });
+        }
+
+        setupFormSubmit('estimationForm', 'estimationStatus', 'Merci ! Votre demande d\'estimation a été transmise.');
+        setupFormSubmit('contactForm', 'contactStatus', 'Merci ! Votre message a bien été envoyé.');
+    </script>
+</body>
+</html>
