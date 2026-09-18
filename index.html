@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
+<head>
     <meta charset="UTF-8">
-        <meta name="google-site-verification" content="I5lJ91oZZXHa_DQeVdUl5orAaSyK_AxFrV_M66iYKFU" />
+    <meta name="google-site-verification" content="I5lJ91oZZXHa_DQeVdUl5orAaSyK_AxFrV_M66iYKFU" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Michael HULAK - Conseiller Immobilier iad France à Moret-Loing-et-Orvanne</title>
     <meta name="description" content="Conseiller immobilier indépendant iad France à Moret-Loing-et-Orvanne, Saint-Mammès, Écuelles et environs. Estimation offerte, achat et vente de biens immobiliers en Seine-et-Marne.">
@@ -115,14 +115,11 @@
                 <h3>Avis de Valeur offert</h3>
                 <p>Estimation immobilière rigoureuse basée sur les dernières transactions réelles de votre secteur.</p>
             </div>
-                     <div class="card">
+            <div class="card">
                 <h3>Recrutement & Reconversion</h3>
                 <p>Vous souhaitez vous lancer dans l'immobilier ou changer de carrière ? Bénéficiez d'un accompagnement personnalisé et de la puissance du réseau iad à Moret-Loing-et-Orvanne.</p>
                 <a href="mailto:michael.hulak@iadfrance.fr?subject=Information%20Recrutement%20iad" class="btn btn-primary" style="margin-top: 15px; display: inline-block; font-size: 0.9rem; padding: 8px 18px;">Devenir conseiller immobilier</a>
             </div>
-
-</div>
-
         </div>
     </section>
 
@@ -249,7 +246,6 @@
         </div>
     </section>
 
-
     <footer>
         <p>&copy; Michael HULAK — Agent commercial indépendant immatriculé au RSAC de Melun (N° 450 799 671) pour le réseau iad France.</p>
     </footer>
@@ -279,14 +275,20 @@
                     if (response.ok) {
                         status.textContent = successMsg;
                         status.className = "form-status success";
+                        status.style.display = "block";
+                        alert(successMsg);
                         form.reset();
                     } else {
                         status.textContent = "Une erreur est survenue. Veuillez réessayer.";
                         status.className = "form-status error";
+                        status.style.display = "block";
+                        alert("Une erreur est survenue. Veuillez réessayer.");
                     }
                 } catch (error) {
                     status.textContent = "Erreur de connexion. Veuillez réessayer.";
                     status.className = "form-status error";
+                    status.style.display = "block";
+                    alert("Erreur de connexion. Veuillez réessayer.");
                 } finally {
                     btn.disabled = false;
                     btn.textContent = originalBtnText;
@@ -294,8 +296,8 @@
             });
         }
 
-        setupFormSubmit('estimationForm', 'estimationStatus', 'Merci ! Votre demande d\'estimation a été transmise.');
+        setupFormSubmit('estimationForm', 'estimationStatus', 'Merci ! Votre demande d\'estimation a bien été transmise.');
         setupFormSubmit('contactForm', 'contactStatus', 'Merci ! Votre message a bien été envoyé.');
     </script>
 </body>
-</html> 
+</html>
