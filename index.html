@@ -5,7 +5,7 @@
     <meta name="google-site-verification" content="I5lJ91oZZXHa_DQeVdUl5orAaSyK_AxFrV_M66iYKFU" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Michael HULAK - Conseiller Immobilier iad France à Moret-Loing-et-Orvanne</title>
-    <meta name="description" content="Conseiller immobilier indépendant iad France à Moret-Loing-et-Orvanne, Saint-Mammès, Écuelles et environs. Estimation offerte, achat et vente de biens immobiliers en Seine-et-Marne.">
+    <meta name="description" content="Conseiller immobilier indépendant iad France à Moret-Loing-et-Orvanne, Saint-Mammès, Écuelles et environs. Estimation offerte, achat, vente, location et recrutement en Seine-et-Marne.">
     <meta name="robots" content="index, follow">
 
     <!-- Données structurées Google (SEO Local) -->
@@ -14,7 +14,7 @@
       "@context": "https://schema.org",
       "@type": "RealEstateAgent",
       "name": "Michael HULAK - Conseiller Immobilier iad France",
-      "image": "https://votre-pseudo.github.io/immobilier-morevan/photo.jpg",
+      "image": "photo.jpg",
       "telephone": "+33609208810",
       "email": "michael.hulak@iadfrance.fr",
       "address": {
@@ -31,62 +31,205 @@
 
     <style>
         :root {
-            --primary: #002b49;
-            --accent: #00a3e0;
-            --light: #f4f7f9;
-            --dark: #1e293b;
-            --gray: #64748b;
-            --success: #10b981;
-            --error: #ef4444;
+            --iad-navy: #002b49;
+            --iad-blue: #00a3e0;
+            --iad-blue-hover: #0082b3;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --shadow-soft: 0 10px 30px -5px rgba(0, 43, 73, 0.06);
+            --shadow-hover: 0 20px 35px -5px rgba(0, 43, 73, 0.12);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { color: var(--dark); background-color: #fff; line-height: 1.6; }
-        header { background: linear-gradient(rgba(0, 43, 73, 0.90), rgba(0, 43, 73, 0.90)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat; color: white; padding: 80px 20px; text-align: center; }
-        .hero-content { max-width: 800px; margin: 0 auto; }
-        .agent-photo { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent); margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); background-color: #ccc; }
-        .badge { background-color: var(--accent); color: white; padding: 6px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: bold; display: inline-block; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
-        h1 { font-size: 2.3rem; margin-bottom: 10px; }
-        p.subtitle { font-size: 1.2rem; opacity: 0.9; margin-bottom: 30px; }
-        .cta-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
-        .btn { display: inline-block; padding: 12px 28px; border-radius: 6px; text-decoration: none; font-weight: bold; border: none; cursor: pointer; transition: all 0.3s ease; }
-        .btn-primary { background-color: var(--accent); color: white; }
-        .btn-primary:hover { background-color: #0082b3; }
-        .btn-secondary { background-color: white; color: var(--primary); }
-        .btn-secondary:hover { background-color: var(--light); }
-        section { padding: 60px 20px; max-width: 1100px; margin: 0 auto; }
-        .section-title { text-align: center; margin-bottom: 40px; }
-        .section-title h2 { font-size: 2rem; color: var(--primary); }
-        .services-grid, .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .card, .review-card { background: var(--light); border-radius: 8px; padding: 30px; border: 1px solid #e2e8f0; }
-        .card h3 { color: var(--primary); margin-bottom: 15px; }
-        .review-card { border-left: 5px solid var(--accent); display: flex; flex-direction: column; justify-content: space-between; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+        body { color: var(--text-dark); background-color: var(--bg-light); line-height: 1.6; }
+
+        /* Header chic iad avec arrière-plan HD */
+        header { 
+            background: linear-gradient(180deg, rgba(0, 43, 73, 0.88) 0%, rgba(0, 25, 45, 0.95) 100%), 
+                        url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; 
+            color: white; 
+            padding: 95px 20px 85px; 
+            text-align: center;
+            border-bottom: 4px solid var(--iad-blue);
+        }
+        .hero-content { max-width: 850px; margin: 0 auto; }
+        .agent-photo { 
+            width: 155px; 
+            height: 155px; 
+            border-radius: 50%; 
+            object-fit: cover; 
+            border: 4px solid var(--iad-blue); 
+            margin-bottom: 22px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4); 
+            background-color: var(--iad-navy); 
+        }
+        .badge { 
+            background-color: var(--iad-blue); 
+            color: white; 
+            padding: 7px 20px; 
+            border-radius: 50px; 
+            font-size: 0.85rem; 
+            font-weight: 700; 
+            display: inline-block; 
+            margin-bottom: 18px; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px;
+            box-shadow: 0 4px 12px rgba(0, 163, 224, 0.3);
+        }
+        h1 { font-size: 2.6rem; margin-bottom: 10px; font-weight: 800; letter-spacing: -0.5px; }
+        p.subtitle { font-size: 1.25rem; opacity: 0.92; margin-bottom: 35px; font-weight: 300; }
+        .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .btn { 
+            display: inline-block; 
+            padding: 14px 32px; 
+            border-radius: 8px; 
+            text-decoration: none; 
+            font-weight: 700; 
+            font-size: 0.95rem;
+            border: none; 
+            cursor: pointer; 
+            transition: all 0.25s ease; 
+        }
+        .btn-primary { background-color: var(--iad-blue); color: white; box-shadow: 0 4px 15px rgba(0, 163, 224, 0.35); }
+        .btn-primary:hover { background-color: var(--iad-blue-hover); transform: translateY(-2px); }
+        .btn-secondary { background-color: white; color: var(--iad-navy); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
+        .btn-secondary:hover { background-color: #ffffff; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); }
+
+        /* Badges Métiers (Achat, Vente, Location, Recrutement) */
+        .pillars-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+            padding: 0 20px;
+        }
+        .pillar-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px 25px;
+            text-align: center;
+            box-shadow: var(--shadow-hover);
+            border: 1px solid var(--border-color);
+            min-width: 180px;
+            flex: 1;
+            max-width: 240px;
+            transition: all 0.3s ease;
+        }
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--iad-blue);
+        }
+        .pillar-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 163, 224, 0.1);
+            color: var(--iad-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            font-size: 1.4rem;
+        }
+        .pillar-card h4 {
+            color: var(--iad-navy);
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Sections & Grille de Cartes */
+        section { padding: 70px 20px; max-width: 1140px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.2rem; color: var(--iad-navy); font-weight: 800; margin-bottom: 10px; }
+        .section-title p { color: var(--text-muted); font-size: 1.05rem; }
+
+        .services-grid, .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+        .card, .review-card { 
+            background: var(--card-bg); 
+            border-radius: 14px; 
+            padding: 32px 25px; 
+            border: 1px solid var(--border-color); 
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+        }
+        .card:hover, .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--iad-blue);
+        }
+        .card h3 { color: var(--iad-navy); margin-bottom: 12px; font-size: 1.3rem; font-weight: 700; }
+        .card p { color: #475569; font-size: 0.95rem; }
+
+        .review-card { border-left: 5px solid var(--iad-blue); display: flex; flex-direction: column; justify-content: space-between; }
         .stars { color: #f59e0b; font-size: 1.2rem; margin-bottom: 15px; }
-        .review-text { font-style: italic; }
-        .review-author { font-weight: bold; color: var(--primary); margin-top: 20px; text-align: right; font-size: 0.95rem; }
-        .forms-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 20px; }
-        .form-card { background: var(--light); padding: 30px; border-radius: 12px; border: 1px solid #e2e8f0; }
-        .form-card h3 { color: var(--primary); margin-bottom: 20px; font-size: 1.4rem; border-bottom: 2px solid var(--accent); padding-bottom: 8px; }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 0.9rem; }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 1rem; }
-        .form-group textarea { resize: vertical; height: 100px; }
-        .form-row { display: flex; gap: 10px; }
+        .review-text { font-style: italic; color: #334155; }
+        .review-author { font-weight: 700; color: var(--iad-navy); margin-top: 22px; text-align: right; font-size: 0.95rem; }
+
+        /* Formulaires d'estimation et de contact */
+        .forms-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; margin-top: 20px; }
+        .form-card { 
+            background: var(--card-bg); 
+            padding: 38px; 
+            border-radius: 16px; 
+            border: 1px solid var(--border-color); 
+            box-shadow: var(--shadow-soft);
+        }
+        .form-card h3 { color: var(--iad-navy); margin-bottom: 24px; font-size: 1.4rem; font-weight: 700; border-bottom: 2px solid var(--iad-blue); padding-bottom: 10px; }
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 0.9rem; color: #334155; }
+        .form-group input, .form-group select, .form-group textarea { 
+            width: 100%; 
+            padding: 12px 15px; 
+            border: 1px solid #cbd5e1; 
+            border-radius: 8px; 
+            font-size: 0.98rem; 
+            background-color: #f8fafc;
+            transition: all 0.2s;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--iad-blue);
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(0, 163, 224, 0.15);
+        }
+        .form-group textarea { resize: vertical; height: 110px; }
+        .form-row { display: flex; gap: 12px; }
         .form-row .form-group { flex: 1; }
-        .form-status { margin-top: 15px; padding: 12px; border-radius: 6px; font-size: 0.9rem; display: none; text-align: center; }
+        
+        .form-status { margin-top: 15px; padding: 14px; border-radius: 8px; font-size: 0.92rem; display: none; text-align: center; font-weight: 600; }
         .form-status.success { display: block; background-color: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
         .form-status.error { display: block; background-color: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
-        .direct-contact { background-color: var(--light); border-radius: 12px; padding: 30px; text-align: center; margin-top: 40px; border: 1px solid #e2e8f0; }
-        .direct-contact-info { display: flex; justify-content: center; gap: 30px; margin-top: 15px; flex-wrap: wrap; font-size: 1.1rem; }
-        .direct-contact-info a { color: var(--primary); text-decoration: none; font-weight: bold; }
-        footer { text-align: center; padding: 20px; font-size: 0.85rem; color: var(--gray); border-top: 1px solid #eee; margin-top: 40px; }
+
+        .direct-contact { 
+            background: var(--card-bg); 
+            border-radius: 16px; 
+            padding: 38px; 
+            text-align: center; 
+            margin-top: 45px; 
+            border: 1px solid var(--border-color); 
+            box-shadow: var(--shadow-soft);
+        }
+        .direct-contact h3 { color: var(--iad-navy); font-size: 1.45rem; font-weight: 700; }
+        .direct-contact-info { display: flex; justify-content: center; gap: 35px; margin-top: 20px; flex-wrap: wrap; font-size: 1.1rem; }
+        .direct-contact-info a { color: var(--iad-navy); text-decoration: none; font-weight: 700; }
+        .direct-contact-info a:hover { color: var(--iad-blue); }
+
+        footer { text-align: center; padding: 30px 20px; font-size: 0.85rem; color: var(--text-muted); border-top: 1px solid var(--border-color); margin-top: 50px; background-color: #ffffff; }
     </style>
 </head>
 <body>
 
     <header>
         <div class="hero-content">
-            <img src="photo.jpg" onerror="this.src='photo.png'" alt="Michael HULAK Conseiller Immobilier" class="agent-photo">
+            <img src="photo.jpg" onerror="this.onerror=null; this.src='photo.png';" alt="Michael HULAK Conseiller Immobilier" class="agent-photo">
             <div><span class="badge">iad France</span></div>
             <h1>Michael HULAK</h1>
             <p class="subtitle">Conseiller Immobilier à Moret-Loing-et-Orvanne & secteur Sud 77</p>
@@ -96,6 +239,26 @@
             </div>
         </div>
     </header>
+
+    <!-- Badges Métiers : Vente, Achat, Location, Recrutement -->
+    <div class="pillars-container">
+        <div class="pillar-card">
+            <div class="pillar-icon">🏡</div>
+            <h4>Vente</h4>
+        </div>
+        <div class="pillar-card">
+            <div class="pillar-icon">🔑</div>
+            <h4>Achat</h4>
+        </div>
+        <div class="pillar-card">
+            <div class="pillar-icon">📜</div>
+            <h4>Location</h4>
+        </div>
+        <div class="pillar-card">
+            <div class="pillar-icon">🚀</div>
+            <h4>Recrutement</h4>
+        </div>
+    </div>
 
     <section id="services">
         <div class="section-title">
@@ -112,13 +275,13 @@
                 <p>Analyse précise de vos besoins et sélection ciblée de biens sur le marché local.</p>
             </div>
             <div class="card">
-                <h3>Avis de Valeur offert</h3>
-                <p>Estimation immobilière rigoureuse basée sur les dernières transactions réelles de votre secteur.</p>
+                <h3>Location</h3>
+                <p>Mise en location, accompagnement administratif et sélection rigoureuse des candidats locataires.</p>
             </div>
             <div class="card">
-                <h3>Recrutement & Reconversion</h3>
-                <p>Vous souhaitez vous lancer dans l'immobilier ou changer de carrière ? Bénéficiez d'un accompagnement personnalisé et de la puissance du réseau iad à Moret-Loing-et-Orvanne.</p>
-                <a href="mailto:michael.hulak@iadfrance.fr?subject=Information%20Recrutement%20iad" class="btn btn-primary" style="margin-top: 15px; display: inline-block; font-size: 0.9rem; padding: 8px 18px;">Devenir conseiller immobilier</a>
+                <h3>Recrutement iad</h3>
+                <p>Développez votre propre équipe ou reconvertissez-vous dans l'immobilier avec le réseau n°1 iad France.</p>
+                <a href="mailto:michael.hulak@iadfrance.fr?subject=Information%20Recrutement%20iad" class="btn btn-primary" style="margin-top: 18px; display: inline-block; font-size: 0.88rem; padding: 10px 20px;">Rejoindre iad</a>
             </div>
         </div>
     </section>
@@ -130,23 +293,29 @@
         </div>
         <div class="reviews-grid">
             <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p class="review-text">« Un grand merci à Michael pour son accompagnement, son écoute et sa grande disponibilité tout au long de la vente de notre maison. »</p>
+                <div>
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">« Un grand merci à Michael pour son accompagnement, son écoute et sa grande disponibilité tout au long de la vente de notre maison. »</p>
+                </div>
                 <p class="review-author">— Client Vérifié</p>
             </div>
             <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p class="review-text">« Professionnel, réactif et très bon connaisseur du secteur de Moret-Loing-et-Orvanne. Je recommande les yeux fermés. »</p>
+                <div>
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">« Professionnel, réactif et très bon connaisseur du secteur de Moret-Loing-et-Orvanne. Je recommande les yeux fermés. »</p>
+                </div>
                 <p class="review-author">— Client Vérifié</p>
             </div>
             <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p class="review-text">« Estimation juste et vente réalisée rapidement dans les meilleures conditions. Merci pour la rigueur. »</p>
+                <div>
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">« Estimation juste et vente réalisée rapidement dans les meilleures conditions. Merci pour la rigueur. »</p>
+                </div>
                 <p class="review-author">— Client Vérifié</p>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 30px;">
-            <a href="https://www.iadfrance.fr/conseiller-immobilier/michael.hulak" target="_blank" class="btn btn-secondary" style="border: 1px solid var(--primary);">
+        <div style="text-align: center; margin-top: 35px;">
+            <a href="https://www.iadfrance.fr/conseiller-immobilier/michael.hulak" target="_blank" class="btn btn-secondary" style="border: 1px solid #cbd5e1;">
                 ⭐ Consulter mes avis certifiés sur iad France
             </a>
         </div>
@@ -255,44 +424,38 @@
             const form = document.getElementById(formId);
             const status = document.getElementById(statusId);
 
-            form.addEventListener("submit", async function(e) {
+            form.addEventListener("submit", function(e) {
                 e.preventDefault();
                 const btn = form.querySelector('button[type="submit"]');
                 const originalBtnText = btn.textContent;
                 
                 btn.disabled = true;
                 btn.textContent = "Envoi en cours...";
-                status.className = "form-status";
-                status.style.display = "none";
 
-                try {
-                    const response = await fetch(form.action, {
-                        method: form.method,
-                        body: new FormData(form),
-                        headers: { 'Accept': 'application/json' }
-                    });
-
+                fetch(form.action, {
+                    method: form.method,
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                }).then(function(response) {
                     if (response.ok) {
+                        /* Affichage direct du bandeau vert sans fenêtre pop-up système */
                         status.textContent = successMsg;
                         status.className = "form-status success";
                         status.style.display = "block";
-                        alert(successMsg);
                         form.reset();
                     } else {
                         status.textContent = "Une erreur est survenue. Veuillez réessayer.";
                         status.className = "form-status error";
                         status.style.display = "block";
-                        alert("Une erreur est survenue. Veuillez réessayer.");
                     }
-                } catch (error) {
+                }).catch(function(error) {
                     status.textContent = "Erreur de connexion. Veuillez réessayer.";
                     status.className = "form-status error";
                     status.style.display = "block";
-                    alert("Erreur de connexion. Veuillez réessayer.");
-                } finally {
+                }).finally(function() {
                     btn.disabled = false;
                     btn.textContent = originalBtnText;
-                }
+                });
             });
         }
 
