@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="google-site-verification" content="I5lJ91oZZXHa_DQeVdUl5orAaSyK_AxFrV_M66iYKFU" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michael HULAK - Conseiller Immobilier iad France Prestige à Moret-Loing-et-Orvanne</title>
-    <meta name="description" content="Michael Hulak, conseiller immobilier indépendant iad France à Moret-Loing-et-Orvanne, Saint-Mammès, Écuelles. Estimation offerte en quelques clics, achat, vente et recrutement Sud 77.">
+    <title>Michael HULAK - Conseiller Immobilier iad France à Moret-Loing-et-Orvanne, Écuelles, Veneux, Saint-Mammès</title>
+    <meta name="description" content="Michael Hulak, conseiller immobilier indépendant iad France à Moret-Loing-et-Orvanne, Écuelles, Veneux-les-Sablons, Épisy, Montarlot, Saint-Mammès et environs. Estimation offerte, achat, vente, location et recrutement.">
     <meta name="robots" content="index, follow">
 
     <!-- Polices Google Luxe -->
@@ -29,7 +29,7 @@
         "addressRegion": "Seine-et-Marne",
         "addressCountry": "FR"
       },
-      "areaServed": ["Moret-Loing-et-Orvanne", "Saint-Mammès", "Écuelles", "Veneux-les-Sablons", "Montigny-sur-Loing"],
+      "areaServed": ["Moret-Loing-et-Orvanne", "Écuelles", "Veneux-les-Sablons", "Épisy", "Montarlot", "Saint-Mammès", "Montigny-sur-Loing"],
       "priceRange": "€€"
     }
     </script>
@@ -68,7 +68,7 @@
             text-align: center;
             border-bottom: 3px solid var(--prestige-champagne);
         }
-        .hero-content { max-width: 800px; margin: 0 auto; }
+        .hero-content { max-width: 850px; margin: 0 auto; }
         .agent-photo { 
             width: 150px; 
             height: 150px; 
@@ -92,12 +92,12 @@
             text-transform: uppercase; 
             letter-spacing: 2px;
         }
-        h1 { font-size: 2.5rem; margin-bottom: 12px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; }
-        p.subtitle { font-size: 1.2rem; color: #cbd5e1; margin-bottom: 30px; font-weight: 300; }
-        .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        h1 { font-size: 2.4rem; margin-bottom: 12px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; }
+        p.subtitle { font-size: 1.15rem; color: #cbd5e1; margin-bottom: 30px; font-weight: 300; }
+        .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
         .btn { 
             display: inline-block; 
-            padding: 14px 30px; 
+            padding: 14px 28px; 
             border-radius: 8px; 
             text-decoration: none; 
             font-weight: 700; 
@@ -110,8 +110,10 @@
         .btn-primary:hover { background-color: var(--iad-blue-hover); transform: translateY(-2px); }
         .btn-secondary { background-color: transparent; color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3); }
         .btn-secondary:hover { background-color: rgba(255, 255, 255, 0.1); border-color: #ffffff; transform: translateY(-2px); }
+        .btn-recrutement { background-color: rgba(197, 168, 128, 0.25); color: #ffffff; border: 1px solid var(--prestige-champagne); }
+        .btn-recrutement:hover { background-color: var(--prestige-champagne); color: var(--iad-navy); transform: translateY(-2px); }
 
-        /* Badges Métiers (Effet Métal Champagne) */
+        /* Badges Métiers */
         .pillars-container {
             display: flex;
             justify-content: center;
@@ -133,6 +135,7 @@
             flex: 1;
             max-width: 240px;
             transition: all 0.3s ease;
+            text-decoration: none;
         }
         .pillar-card:hover {
             transform: translateY(-5px);
@@ -210,11 +213,6 @@
             border-color: var(--iad-blue);
             background: #f0f9ff;
             transform: translateY(-2px);
-        }
-        .option-btn.selected {
-            border-color: var(--iad-blue);
-            background: var(--iad-blue);
-            color: white;
         }
 
         .funnel-input {
@@ -300,9 +298,10 @@
             <img src="photo.jpg" onerror="this.onerror=null; this.src='photo.png';" alt="Michael HULAK Conseiller Immobilier" class="agent-photo">
             <div><span class="badge">iad France Prestige</span></div>
             <h1>Michael HULAK</h1>
-            <p class="subtitle">Conseiller Immobilier d'Exception à Moret-Loing-et-Orvanne & Sud 77</p>
+            <p class="subtitle">Conseiller Immobilier à Moret-Loing-et-Orvanne, Écuelles, Veneux-les-Sablons, Épisy, Montarlot, Saint-Mammès & environs</p>
             <div class="cta-buttons">
                 <a href="#quiz-estimation" class="btn btn-primary">Estimer mon bien (45 sec)</a>
+                <a href="mailto:michael.hulak@iadfrance.fr?subject=Information%20Recrutement%20iad" class="btn btn-recrutement">🚀 Rejoindre iad / Recrutement</a>
                 <a href="#contact" class="btn btn-secondary">Me contacter</a>
             </div>
         </div>
@@ -310,29 +309,29 @@
 
     <!-- Badges Métiers -->
     <div class="pillars-container">
-        <div class="pillar-card">
+        <a href="#quiz-estimation" class="pillar-card">
             <div class="pillar-icon">🏡</div>
             <h4>Vente</h4>
-        </div>
-        <div class="pillar-card">
+        </a>
+        <a href="#services" class="pillar-card">
             <div class="pillar-icon">🔑</div>
             <h4>Achat</h4>
-        </div>
-        <div class="pillar-card">
+        </a>
+        <a href="#services" class="pillar-card">
             <div class="pillar-icon">📄</div>
             <h4>Location</h4>
-        </div>
-        <div class="pillar-card">
+        </a>
+        <a href="#recrutement" class="pillar-card">
             <div class="pillar-icon">🚀</div>
             <h4>Recrutement</h4>
-        </div>
+        </a>
     </div>
 
     <!-- SECTION TUNNEL / QUIZ INTERACTIF -->
     <section id="quiz-estimation">
         <div class="section-title">
             <h2>Estimation Offerte & Sans Engagement</h2>
-            <p>Obtenez une analyse précise de la valeur de votre bien à Moret-Loing-et-Orvanne et alentours.</p>
+            <p>Obtenez une analyse précise à Moret-Loing-et-Orvanne, Écuelles, Veneux-les-Sablons, Épisy, Montarlot, Saint-Mammès et environs.</p>
         </div>
 
         <div class="funnel-card">
@@ -396,14 +395,14 @@
                 <!-- Étape 5 : Localisation -->
                 <div class="funnel-step" data-step="5">
                     <h3>5. Dans quelle commune se situe le bien ?</h3>
-                    <input type="text" name="commune" class="funnel-input" placeholder="ex: 77250 Moret-Loing-et-Orvanne, Écuelles..." id="commune_input" required>
+                    <input type="text" name="commune" class="funnel-input" placeholder="ex: Moret-Loing-et-Orvanne, Écuelles, Veneux, Épisy, Montarlot, Saint-Mammès..." id="commune_input" required>
                     <div class="nav-buttons">
                         <button type="button" class="btn-back" onclick="prevStep(5)">Retour</button>
                         <button type="button" class="btn-next" onclick="nextStep(5)">Continuer</button>
                     </div>
                 </div>
 
-                <!-- Étape 6 : Coordonnées pour recevoir l'estimation -->
+                <!-- Étape 6 : Coordonnées -->
                 <div class="funnel-step" data-step="6">
                     <h3>6. Où dois-je vous envoyer votre étude personnalisée ?</h3>
                     <input type="text" name="nom_complet" class="funnel-input" placeholder="Votre nom complet" required>
@@ -428,11 +427,11 @@
         </div>
     </section>
 
-    <!-- Section Services -->
+    <!-- Section Services & Recrutement -->
     <section id="services">
         <div class="section-title">
             <h2>Services Immobilier d'Exception</h2>
-            <p>Un accompagnement sur-mesure à Moret-Loing-et-Orvanne, Saint-Mammès et Écuelles.</p>
+            <p>Un accompagnement de proximité à Moret-Loing-et-Orvanne, Écuelles, Veneux-les-Sablons, Épisy, Montarlot, Saint-Mammès et secteur Sud 77.</p>
         </div>
         <div class="services-grid">
             <div class="card">
@@ -441,16 +440,16 @@
             </div>
             <div class="card">
                 <h3>Achat & Recherche</h3>
-                <p>Accompagnement personnalisé, étude précise de vos besoins et recherche sur-mesure de biens locaux.</p>
+                <p>Accompagnement personnalisé, étude précise de vos besoins et recherche sur-mesure de biens sur notre secteur.</p>
             </div>
             <div class="card">
-                <h3>Prestige & Demeures</h3>
-                <p>Une expertise spécifique pour les biens de caractère, les demeures d'exception et les propriétés haut de gamme.</p>
+                <h3>Location & Gestion</h3>
+                <p>Mise en location, constitution de dossier candidat rigoureux et accompagnement complet.</p>
             </div>
-            <div class="card">
+            <div class="card" id="recrutement">
                 <h3>Développement & Recrutement</h3>
-                <p>Rejoignez le réseau n°1 iad France en Seine-et-Marne. Bénéficiez d'une formation et d'un accompagnement personnalisé.</p>
-                <a href="mailto:michael.hulak@iadfrance.fr?subject=Information%20Recrutement%20iad" class="btn btn-primary" style="margin-top: 18px; display: inline-block; font-size: 0.88rem; padding: 10px 20px;">Devenir conseiller iad</a>
+                <p>Envie de vous lancer dans l'immobilier ou de vous reconvertir ? Bénéficiez d'une formation sur-mesure et de la puissance du réseau n°1 iad France.</p>
+                <a href="mailto:michael.hulak@iadfrance.fr?subject=Information%20Recrutement%20iad" class="btn btn-primary" style="margin-top: 18px; display: inline-block; font-size: 0.88rem; padding: 10px 20px;">Rejoindre mon équipe iad</a>
             </div>
         </div>
     </section>
@@ -459,7 +458,7 @@
     <section id="avis">
         <div class="section-title">
             <h2>Avis Clients Certifiés</h2>
-            <p>La satisfaction de mes clients est ma priorité au quotidien.</p>
+            <p>La satisfaction de mes clients sur le secteur est ma priorité au quotidien.</p>
         </div>
         <div class="reviews-grid">
             <div class="review-card">
@@ -472,7 +471,7 @@
             <div class="review-card">
                 <div>
                     <div class="stars">★★★★★</div>
-                    <p class="review-text">« Professionnel, réactif et très bon connaisseur du secteur de Moret-Loing-et-Orvanne. Je recommande les yeux fermés. »</p>
+                    <p class="review-text">« Professionnel, réactif et très bon connaisseur du secteur de Moret-Loing-et-Orvanne et des communes voisines. Je recommande les yeux fermés. »</p>
                 </div>
                 <p class="review-author">— Client Vérifié</p>
             </div>
@@ -498,7 +497,7 @@
             <div class="direct-contact-info">
                 <div>📞 <a href="tel:+33609208810">06 09 20 88 10</a></div>
                 <div>✉️ <a href="mailto:michael.hulak@iadfrance.fr">michael.hulak@iadfrance.fr</a></div>
-                <div>📍 Moret-Loing-et-Orvanne (77250)</div>
+                <div>📍 Moret-Loing-et-Orvanne (77250) & communes limitrophes</div>
             </div>
         </div>
     </section>
