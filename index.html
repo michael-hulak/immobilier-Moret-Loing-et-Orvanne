@@ -1,327 +1,647 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Michael Hulak - Agent Immobilier iad France | Moret-Loing-et-Orvanne</title>
-  <meta name="description" content="Estimation et vente immobilière à Moret-Loing-et-Orvanne, Écuelles, Veneux-les-Sablons, Saint-Mammès. Contactez Michael Hulak, votre conseiller iad local.">
-  <style>
-    :root {
-      --primary-color: #1a1a1a;
-      --accent-color: #c5a880;
-      --bg-light: #f9f9f9;
-      --text-dark: #2c2c2c;
-    }
-    
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="I5lJ91oZZXHa_DQeVdUl5orAaSyK_AxFrV_M66iYKFU" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael HULAK - Conseiller Immobilier iad France Prestige | Moret-Loing-et-Orvanne</title>
+    <meta name="description" content="Michael Hulak, conseiller immobilier indépendant iad France à Moret-Loing-et-Orvanne, Écuelles, Veneux-les-Sablons, Épisy, Montarlot, Saint-Mammès et environs.">
+    <meta name="robots" content="index, follow">
 
-    body {
-      background-color: var(--bg-light);
-      color: var(--text-dark);
-      line-height: 1.6;
-      padding-bottom: 70px; /* Espace pour le bandeau mobile */
-    }
+    <!-- Polices Google Luxe -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    header {
-      background-color: var(--primary-color);
-      color: #fff;
-      padding: 15px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    <!-- Données structurées Google (SEO Local) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "Michael HULAK - Conseiller Immobilier iad France",
+      "image": "photo.jpg",
+      "telephone": "+33609208810",
+      "email": "michael.hulak@iadfrance.fr",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Moret-Loing-et-Orvanne",
+        "postalCode": "77250",
+        "addressRegion": "Seine-et-Marne",
+        "addressCountry": "FR"
+      },
+      "areaServed": ["Moret-Loing-et-Orvanne", "Écuelles", "Veneux-les-Sablons", "Épisy", "Montarlot", "Saint-Mammès", "Montigny-sur-Loing"],
+      "priceRange": "€€"
     }
+    </script>
 
-    .header-title {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: var(--accent-color);
-    }
+    <style>
+        :root {
+            --iad-navy: #002b49;
+            --iad-blue: #00a3e0;
+            --iad-blue-hover: #0082b3;
+            --prestige-champagne: #c5a880;
+            --prestige-cream: #f4efe6;
+            --bg-dark-luxury: #00182b; /* Nuit profonde chic */
+            --bg-card-dark: #00223b;
+            --card-light: #ffffff;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-glow: rgba(197, 168, 128, 0.4);
+            --shadow-luxury: 0 25px 60px -15px rgba(0, 0, 0, 0.5);
+        }
 
-    .header-btn-call {
-      background-color: var(--accent-color);
-      color: var(--primary-color);
-      padding: 8px 16px;
-      border-radius: 20px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 0.95rem;
-      transition: background-color 0.3s;
-    }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            color: var(--text-main); 
+            background-color: var(--bg-dark-luxury); 
+            line-height: 1.6; 
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            min-height: 100vh;
+            /* Motif feutré luxe en fond */
+            background-image: 
+                radial-gradient(circle at 50% 20%, rgba(0, 163, 224, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(197, 168, 128, 0.08) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
 
-    .header-btn-call:hover {
-      background-color: #e2c499;
-    }
+        /* Header Sombre et Chic */
+        header { 
+            background: linear-gradient(180deg, rgba(0, 24, 43, 0.85) 0%, rgba(0, 24, 43, 0.98) 100%), 
+                        url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; 
+            color: white; 
+            padding: 95px 20px 85px; 
+            text-align: center;
+            border-bottom: 2px solid var(--prestige-champagne);
+        }
+        .hero-content { max-width: 850px; margin: 0 auto; }
+        .agent-photo { 
+            width: 155px; 
+            height: 155px; 
+            border-radius: 50%; 
+            object-fit: cover; 
+            border: 3px solid var(--prestige-champagne); 
+            margin-bottom: 22px; 
+            box-shadow: 0 12px 30px rgba(0,0,0,0.6); 
+            background-color: var(--iad-navy); 
+        }
+        .badge { 
+            background-color: rgba(197, 168, 128, 0.2); 
+            color: var(--prestige-champagne); 
+            border: 1px solid var(--prestige-champagne);
+            padding: 8px 22px; 
+            border-radius: 50px; 
+            font-size: 0.8rem; 
+            font-weight: 700; 
+            display: inline-block; 
+            margin-bottom: 18px; 
+            text-transform: uppercase; 
+            letter-spacing: 2px;
+        }
+        h1 { font-size: 2.5rem; margin-bottom: 12px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; }
+        p.subtitle { font-size: 1.15rem; color: #cbd5e1; margin-bottom: 30px; font-weight: 300; }
+        .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+        .btn { 
+            display: inline-block; 
+            padding: 14px 28px; 
+            border-radius: 8px; 
+            text-decoration: none; 
+            font-weight: 700; 
+            font-size: 0.95rem;
+            border: none; 
+            cursor: pointer; 
+            transition: all 0.3s ease; 
+        }
+        .btn-primary { background-color: var(--iad-blue); color: white; box-shadow: 0 8px 20px rgba(0, 163, 224, 0.3); }
+        .btn-primary:hover { background-color: var(--iad-blue-hover); transform: translateY(-2px); }
+        .btn-secondary { background-color: transparent; color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3); }
+        .btn-secondary:hover { background-color: rgba(255, 255, 255, 0.1); border-color: #ffffff; transform: translateY(-2px); }
+        .btn-recrutement { background-color: rgba(197, 168, 128, 0.25); color: #ffffff; border: 1px solid var(--prestige-champagne); }
+        .btn-recrutement:hover { background-color: var(--prestige-champagne); color: var(--iad-navy); transform: translateY(-2px); }
 
-    .container {
-      max-width: 1000px;
-      margin: 30px auto;
-      padding: 0 20px;
-    }
+        /* Badges Métiers (Cartes dorées sur fond sombre) */
+        .pillars-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: -45px;
+            position: relative;
+            z-index: 10;
+            padding: 0 20px;
+        }
+        .pillar-card {
+            background: var(--bg-card-dark);
+            border-radius: 14px;
+            padding: 22px 25px;
+            text-align: center;
+            box-shadow: var(--shadow-luxury);
+            border: 1px solid var(--border-glow);
+            min-width: 170px;
+            flex: 1;
+            max-width: 240px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--iad-blue);
+            background: #002c4c;
+        }
+        .pillar-icon { font-size: 2rem; margin-bottom: 10px; display: inline-block; }
+        .pillar-card h4 { color: #ffffff; font-size: 1.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
 
-    .profile-card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 30px;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      margin-bottom: 30px;
-      border-top: 4px solid var(--accent-color);
-    }
+        /* Sections */
+        section { padding: 85px 20px; max-width: 1000px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 45px; }
+        .section-title h2 { font-size: 2.2rem; color: #ffffff; font-weight: 800; margin-bottom: 10px; }
+        .section-title p { color: var(--text-muted); font-size: 1.05rem; }
 
-    .profile-img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid var(--accent-color);
-      margin-bottom: 15px;
-    }
+        /* TUNNEL DE CAPTURE LUMINEUX & CHIC */
+        .funnel-card {
+            background: #ffffff;
+            color: #0f172a;
+            border-radius: 20px;
+            padding: 45px 40px;
+            border: 2px solid var(--prestige-champagne);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            max-width: 720px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .progress-bar-container {
+            width: 100%;
+            background-color: #e2e8f0;
+            height: 10px;
+            border-radius: 10px;
+            margin-bottom: 35px;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            width: 16.66%;
+            background: linear-gradient(90deg, var(--iad-blue), var(--iad-navy));
+            transition: width 0.4s ease;
+        }
+        .funnel-step { display: none; }
+        .funnel-step.active { display: block; animation: fadeIn 0.4s ease; }
 
-    .profile-card h1 {
-      font-size: 1.8rem;
-      color: var(--primary-color);
-      margin-bottom: 5px;
-    }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-    .profile-card h2 {
-      font-size: 1.1rem;
-      color: #666;
-      font-weight: normal;
-      margin-bottom: 20px;
-    }
+        .funnel-step h3 {
+            font-size: 1.4rem;
+            color: var(--iad-navy);
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 700;
+        }
 
-    /* CARTE DE CONTACT TRÈS VISIBLE */
-    .direct-contact-box {
-      background-color: #f4efe8;
-      border: 2px dashed var(--accent-color);
-      border-radius: 10px;
-      padding: 20px;
-      margin: 20px 0;
-      display: inline-block;
-      width: 100%;
-      max-width: 500px;
-    }
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .option-btn {
+            background: #f8fafc;
+            border: 2px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 20px 15px;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--iad-navy);
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .option-btn:hover {
+            border-color: var(--iad-blue);
+            background: #f0f9ff;
+            transform: translateY(-2px);
+        }
 
-    .phone-number {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: var(--primary-color);
-      display: block;
-      margin: 8px 0;
-      text-decoration: none;
-      letter-spacing: 1px;
-    }
+        .funnel-input {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #cbd5e1;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+            font-family: inherit;
+            outline: none;
+            transition: border 0.2s;
+            background: #ffffff;
+            color: #0f172a;
+        }
+        .funnel-input:focus { border-color: var(--iad-blue); box-shadow: 0 0 0 3px rgba(0, 163, 224, 0.15); }
 
-    .phone-number:hover {
-      color: var(--accent-color);
-    }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 15px;
+        }
+        .btn-back {
+            background: #e2e8f0;
+            color: #475569;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .btn-next {
+            background: var(--iad-blue);
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            flex-grow: 1;
+        }
+        .btn-next:hover { background: var(--iad-blue-hover); }
 
-    .email-link {
-      font-size: 1.05rem;
-      color: #444;
-      text-decoration: none;
-      font-weight: 600;
-      word-break: break-all;
-    }
+        /* Cartes Services & Avis */
+        .services-grid, .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+        .card, .review-card { 
+            background: var(--bg-card-dark); 
+            border-radius: 16px; 
+            padding: 35px 28px; 
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            box-shadow: var(--shadow-luxury);
+            transition: all 0.3s ease;
+        }
+        .card:hover, .review-card:hover { transform: translateY(-5px); border-color: var(--prestige-champagne); }
+        .card h3 { color: #ffffff; margin-bottom: 12px; font-size: 1.3rem; font-weight: 700; }
+        .card p { color: #cbd5e1; font-size: 0.95rem; }
 
-    .email-link:hover {
-      text-decoration: underline;
-    }
+        .review-card { border-top: 3px solid var(--prestige-champagne); display: flex; flex-direction: column; justify-content: space-between; }
+        .stars { color: var(--prestige-champagne); font-size: 1.1rem; margin-bottom: 15px; letter-spacing: 2px; }
+        .review-text { font-style: italic; color: #e2e8f0; }
+        .review-author { font-weight: 700; color: var(--iad-blue); margin-top: 20px; text-align: right; font-size: 0.95rem; }
 
-    .form-section {
-      background: #fff;
-      border-radius: 12px;
-      padding: 30px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      margin-bottom: 30px;
-    }
+        .direct-contact { 
+            background: var(--bg-card-dark); 
+            border-radius: 16px; 
+            padding: 40px; 
+            text-align: center; 
+            margin-top: 50px; 
+            border: 1px solid var(--border-glow); 
+            box-shadow: var(--shadow-luxury);
+        }
+        .direct-contact h3 { color: #ffffff; font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; }
+        .direct-contact-info { display: flex; justify-content: center; gap: 35px; margin-top: 20px; flex-wrap: wrap; font-size: 1.1rem; }
+        .direct-contact-info a { color: var(--iad-blue); text-decoration: none; font-weight: 700; }
+        .direct-contact-info a:hover { color: #ffffff; }
 
-    .form-section h3 {
-      font-size: 1.4rem;
-      color: var(--primary-color);
-      margin-bottom: 20px;
-      text-align: center;
-    }
+        /* POP-UP DE SORTIE */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 12, 24, 0.85);
+            backdrop-filter: blur(6px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            padding: 20px;
+        }
+        .modal-card {
+            background: #ffffff;
+            color: #0f172a;
+            border-radius: 18px;
+            padding: 40px 35px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            border: 2px solid var(--prestige-champagne);
+        }
+        .modal-close {
+            position: absolute;
+            top: 15px; right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #64748b;
+            border: none;
+            background: none;
+        }
 
-    .form-group {
-      margin-bottom: 15px;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: 600;
-    }
-
-    .form-group input, .form-group textarea, .form-group select {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-
-    .btn-submit {
-      width: 100%;
-      background-color: var(--primary-color);
-      color: var(--accent-color);
-      border: none;
-      padding: 15px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .btn-submit:hover {
-      background-color: #333;
-    }
-
-    .cities-nav {
-      text-align: center;
-      margin-top: 30px;
-      padding: 20px;
-      background: #fff;
-      border-radius: 12px;
-    }
-
-    .cities-nav a {
-      color: var(--primary-color);
-      text-decoration: none;
-      font-weight: bold;
-      margin: 0 10px;
-    }
-
-    .cities-nav a:hover {
-      color: var(--accent-color);
-    }
-
-    /* BANDEAU MOBILES FIXE */
-    .mobile-contact-bar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-color: var(--primary-color);
-      border-top: 2px solid var(--accent-color);
-      display: flex;
-      justify-content: space-around;
-      padding: 10px 15px;
-      z-index: 9999;
-      box-shadow: 0 -4px 15px rgba(0,0,0,0.3);
-    }
-
-    .mobile-contact-btn {
-      flex: 1;
-      margin: 0 5px;
-      padding: 12px 10px;
-      border-radius: 6px;
-      text-align: center;
-      font-weight: bold;
-      text-decoration: none;
-      font-size: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    .btn-tel {
-      background-color: var(--accent-color);
-      color: var(--primary-color) !important;
-    }
-
-    .btn-mail {
-      background-color: #ffffff;
-      color: var(--primary-color) !important;
-      border: 1px solid #ccc;
-    }
-
-    @media (min-width: 769px) {
-      .mobile-contact-bar {
-        display: none;
-      }
-    }
-  </style>
+        footer { text-align: center; padding: 35px 20px; font-size: 0.85rem; color: var(--text-muted); border-top: 1px solid rgba(255, 255, 255, 0.08); margin-top: 60px; background-color: var(--bg-dark-luxury); }
+    </style>
 </head>
 <body>
 
-  <header>
-    <div class="header-title">Michael Hulak | iad France</div>
-    <a href="tel:0600000000" class="header-btn-call">📞 06 XX XX XX XX</a>
-  </header>
+    <header>
+        <div class="hero-content">
+            <img src="photo.jpg" onerror="this.onerror=null; this.src='photo.png';" alt="Michael HULAK Conseiller Immobilier" class="agent-photo">
+            <div><span class="badge">iad France Prestige</span></div>
+            <h1>Michael HULAK</h1>
+            <p class="subtitle">Conseiller Immobilier à Moret-Loing-et-Orvanne, Écuelles, Veneux-les-Sablons, Épisy, Montarlot, Saint-Mammès & environs</p>
+            <div class="cta-buttons">
+                <a href="#quiz-estimation" class="btn btn-primary">Estimer mon bien (45 sec)</a>
+                <a href="mailto:michael.hulak@iadfrance.fr?subject=Information%20Recrutement%20iad" class="btn btn-recrutement">🚀 Rejoindre iad / Recrutement</a>
+                <a href="#contact" class="btn btn-secondary">Me contacter</a>
+            </div>
+        </div>
+    </header>
 
-  <div class="container">
-    <div class="profile-card">
-      <img src="photo.jpg" alt="Michael Hulak - Agent Immobilier iad" class="profile-img">
-      <h1>Michael Hulak</h1>
-      <h2>Conseiller Spécialiste en Immobilier — iad France</h2>
-      
-      <!-- BLOC CONTACT MISE EN AVANT -->
-      <div class="direct-contact-box">
-        <span style="font-size:0.9rem; text-transform:uppercase; letter-spacing:1px; color:#666;">Contact Direct & Urgent</span>
-        <a href="tel:0600000000" class="phone-number">📞 06 XX XX XX XX</a>
-        <a href="mailto:michael.hulak@iadfrance.fr" class="email-link">✉️ michael.hulak@iadfrance.fr</a>
-      </div>
-
-      <p style="margin-top: 15px;">Vous avez un projet d'achat, de vente ou besoin d'une estimation à Moret-Loing-et-Orvanne et ses alentours ? Bénéficiez d'un accompagnement sur-mesure et d'une expertise locale réactive.</p>
+    <!-- Badges Métiers -->
+    <div class="pillars-container">
+        <a href="#quiz-estimation" class="pillar-card">
+            <div class="pillar-icon">🏡</div>
+            <h4>Vente</h4>
+        </a>
+        <a href="#services" class="pillar-card">
+            <div class="pillar-icon">🔑</div>
+            <h4>Achat</h4>
+        </a>
+        <a href="#services" class="pillar-card">
+            <div class="pillar-icon">📄</div>
+            <h4>Location</h4>
+        </a>
+        <a href="#recrutement" class="pillar-card">
+            <div class="pillar-icon">🚀</div>
+            <h4>Recrutement</h4>
+        </a>
     </div>
 
-    <div class="form-section">
-      <h3>Demandez votre estimation offerte</h3>
-      <form action="https://formspree.io/f/xvkggpzk" method="POST">
-        <div class="form-group">
-          <label for="nom">Nom & Prénom</label>
-          <input type="text" id="nom" name="nom" required placeholder="Votre nom complet">
+    <!-- SECTION TUNNEL / QUIZ INTERACTIF -->
+    <section id="quiz-estimation">
+        <div class="section-title">
+            <h2>Estimation Offerte & Sans Engagement</h2>
+            <p>Obtenez une analyse précise à Moret-Loing-et-Orvanne, Écuelles, Veneux-les-Sablons, Épisy, Montarlot, Saint-Mammès et environs.</p>
         </div>
-        <div class="form-group">
-          <label for="telephone">Téléphone</label>
-          <input type="tel" id="telephone" name="telephone" required placeholder="06 XX XX XX XX">
+
+        <div class="funnel-card">
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" id="progressBar"></div>
+            </div>
+
+            <form id="funnelForm" action="https://formspree.io/f/xvkggpzk" method="POST">
+                
+                <!-- Étape 1 : Type de bien -->
+                <div class="funnel-step active" data-step="1">
+                    <h3>1. Que souhaitez-vous faire estimer ?</h3>
+                    <div class="options-grid">
+                        <div class="option-btn" onclick="selectOption('type_bien', 'Maison', 1)">🏡 Maison</div>
+                        <div class="option-btn" onclick="selectOption('type_bien', 'Appartement', 1)">🏢 Appartement</div>
+                        <div class="option-btn" onclick="selectOption('type_bien', 'Terrain', 1)">📐 Terrain</div>
+                        <div class="option-btn" onclick="selectOption('type_bien', 'Immeuble / Autre', 1)">🏛️ Autre</div>
+                    </div>
+                    <input type="hidden" name="type_de_bien" id="type_bien_input" required>
+                </div>
+
+                <!-- Étape 2 : Nombre de pièces -->
+                <div class="funnel-step" data-step="2">
+                    <h3>2. Combien de pièces comporte le bien ?</h3>
+                    <div class="options-grid">
+                        <div class="option-btn" onclick="selectOption('pieces', '1 à 2 pièces', 2)">1 - 2 pièces</div>
+                        <div class="option-btn" onclick="selectOption('pieces', '3 à 4 pièces', 2)">3 - 4 pièces</div>
+                        <div class="option-btn" onclick="selectOption('pieces', '5 pièces et +', 2)">5 pièces +</div>
+                    </div>
+                    <input type="hidden" name="pieces" id="pieces_input">
+                    <div class="nav-buttons">
+                        <button type="button" class="btn-back" onclick="prevStep(2)">Retour</button>
+                    </div>
+                </div>
+
+                <!-- Étape 3 : Surface -->
+                <div class="funnel-step" data-step="3">
+                    <h3>3. Quelle est la surface approximative ?</h3>
+                    <input type="number" name="surface_m2" class="funnel-input" placeholder="ex: 95 (en m²)" id="surface_input">
+                    <div class="nav-buttons">
+                        <button type="button" class="btn-back" onclick="prevStep(3)">Retour</button>
+                        <button type="button" class="btn-next" onclick="nextStep(3)">Continuer</button>
+                    </div>
+                </div>
+
+                <!-- Étape 4 : Délai du projet -->
+                <div class="funnel-step" data-step="4">
+                    <h3>4. Quel est votre horizon de vente ?</h3>
+                    <div class="options-grid">
+                        <div class="option-btn" onclick="selectOption('delai', 'Immédiat (< 1 mois)', 4)">⚡ Immédiat</div>
+                        <div class="option-btn" onclick="selectOption('delai', 'Sous 3 mois', 4)">📅 Sous 3 mois</div>
+                        <div class="option-btn" onclick="selectOption('delai', 'Sous 6 mois à 1 an', 4)">⌛ 6 à 12 mois</div>
+                        <div class="option-btn" onclick="selectOption('delai', 'Simple curiosité', 4)">🔍 Curiosité</div>
+                    </div>
+                    <input type="hidden" name="delai_projet" id="delai_input">
+                    <div class="nav-buttons">
+                        <button type="button" class="btn-back" onclick="prevStep(4)">Retour</button>
+                    </div>
+                </div>
+
+                <!-- Étape 5 : Localisation -->
+                <div class="funnel-step" data-step="5">
+                    <h3>5. Dans quelle commune se situe le bien ?</h3>
+                    <input type="text" name="commune" class="funnel-input" placeholder="ex: Moret-Loing-et-Orvanne, Écuelles, Veneux, Épisy, Montarlot, Saint-Mammès..." id="commune_input" required>
+                    <div class="nav-buttons">
+                        <button type="button" class="btn-back" onclick="prevStep(5)">Retour</button>
+                        <button type="button" class="btn-next" onclick="nextStep(5)">Continuer</button>
+                    </div>
+                </div>
+
+                <!-- Étape 6 : Coordonnées -->
+                <div class="funnel-step" data-step="6">
+                    <h3>6. Où dois-je vous envoyer votre étude personnalisée ?</h3>
+                    <input type="text" name="nom_complet" class="funnel-input" placeholder="Votre nom complet" required>
+                    <input type="email" name="email" class="funnel-input" placeholder="Votre adresse email" required>
+                    <input type="tel" name="telephone" class="funnel-input" placeholder="Votre numéro de téléphone" required>
+                    
+                    <input type="text" name="_gotcha" style="display:none !important;" tabindex="-1" autocomplete="off">
+
+                    <div class="nav-buttons">
+                        <button type="button" class="btn-back" onclick="prevStep(6)">Retour</button>
+                        <button type="submit" class="btn-next" id="submitBtn">Recevoir mon estimation</button>
+                    </div>
+                </div>
+
+            </form>
+
+            <div id="funnelSuccess" style="display:none; text-align:center; padding: 30px 10px;">
+                <div style="font-size: 3rem; margin-bottom: 15px;">✅</div>
+                <h3 style="color: var(--iad-navy); font-size: 1.6rem; margin-bottom: 10px;">Merci pour votre confiance !</h3>
+                <p style="color: #64748b; font-size: 1.05rem;">Votre demande d'estimation a bien été transmise. Je prends connaissance de votre dossier et vous recontacte rapidement.</p>
+            </div>
         </div>
-        <div class="form-group">
-          <label for="email">E-mail</label>
-          <input type="email" id="email" name="email" required placeholder="votre.email@exemple.com">
+    </section>
+
+    <!-- Section Services & Recrutement -->
+    <section id="services">
+        <div class="section-title">
+            <h2>Services Immobilier d'Exception</h2>
+            <p>Un accompagnement de proximité à Moret-Loing-et-Orvanne, Écuelles, Veneux-les-Sablons, Épisy, Montarlot, Saint-Mammès et secteur Sud 77.</p>
         </div>
-        <div class="form-group">
-          <label for="commune">Commune du bien</label>
-          <input type="text" id="commune" name="commune" required placeholder="Ex: Moret-sur-Loing, Écuelles, Veneux...">
+        <div class="services-grid">
+            <div class="card">
+                <h3>Vente de biens</h3>
+                <p>Mise en valeur haut de gamme, stratégie de diffusion ciblée sur plus de 100 portails et sélection rigoureuse d'acquéreurs qualifiés.</p>
+            </div>
+            <div class="card">
+                <h3>Achat & Recherche</h3>
+                <p>Accompagnement personnalisé, étude précise de vos besoins et recherche sur-mesure de biens sur notre secteur.</p>
+            </div>
+            <div class="card">
+                <h3>Location & Gestion</h3>
+                <p>Mise en location, constitution de dossier candidat rigoureux et accompagnement complet.</p>
+            </div>
+            <div class="card" id="recrutement">
+                <h3>Développement & Recrutement</h3>
+                <p>Envie de vous lancer dans l'immobilier ou de vous reconvertir ? Bénéficiez d'une formation sur-mesure et de la puissance du réseau n°1 iad France.</p>
+                <a href="mailto:michael.hulak@iadfrance.fr?subject=Information%20Recrutement%20iad" class="btn btn-primary" style="margin-top: 18px; display: inline-block; font-size: 0.88rem; padding: 10px 20px;">Rejoindre mon équipe iad</a>
+            </div>
         </div>
-        <div class="form-group">
-          <label for="projet">Votre Projet</label>
-          <textarea id="projet" name="projet" rows="4" placeholder="Décrivez votre bien (maison, appartement, surface...)"></textarea>
+    </section>
+
+    <!-- Section Avis -->
+    <section id="avis">
+        <div class="section-title">
+            <h2>Avis Clients Certifiés</h2>
+            <p>La satisfaction de mes clients sur le secteur est ma priorité au quotidien.</p>
         </div>
-        <button type="submit" class="btn-submit">Envoyer ma demande</button>
-      </form>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div>
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">« Un grand merci à Michael pour son accompagnement, son écoute et sa grande disponibilité tout au long de la vente de notre maison. »</p>
+                </div>
+                <p class="review-author">— Client Vérifié</p>
+            </div>
+            <div class="review-card">
+                <div>
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">« Professionnel, réactif et très bon connaisseur du secteur de Moret-Loing-et-Orvanne et des communes voisines. Je recommande les yeux fermés. »</p>
+                </div>
+                <p class="review-author">— Client Vérifié</p>
+            </div>
+            <div class="review-card">
+                <div>
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">« Estimation juste et vente réalisée rapidement dans les meilleures conditions. Merci pour la rigueur. »</p>
+                </div>
+                <p class="review-author">— Client Vérifié</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 35px;">
+            <a href="https://www.iadfrance.fr/conseiller-immobilier/michael.hulak" target="_blank" class="btn btn-secondary" style="color: #ffffff; border: 1px solid var(--iad-blue);">
+                ⭐ Consulter tous mes avis certifiés sur iad France
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Direct -->
+    <section id="contact">
+        <div class="direct-contact">
+            <h3>Contact direct d'exception</h3>
+            <div class="direct-contact-info">
+                <div>📞 <a href="tel:+33609208810">06 09 20 88 10</a></div>
+                <div>✉️ <a href="mailto:michael.hulak@iadfrance.fr">michael.hulak@iadfrance.fr</a></div>
+                <div>📍 Moret-Loing-et-Orvanne (77250) & communes limitrophes</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL POP-UP DE SORTIE -->
+    <div class="modal-overlay" id="exitModal">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeExitModal()">✕</button>
+            <h3 style="color: var(--iad-navy); font-size: 1.4rem; margin-bottom: 12px;">Vous réfléchissez à vendre ?</h3>
+            <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 25px;">Ne partez pas sans connaître la valeur réelle de votre bien à Moret, Écuelles ou Veneux. Cela prend moins de 45 secondes.</p>
+            <a href="#quiz-estimation" onclick="closeExitModal()" class="btn btn-primary" style="width: 100%; display: block; text-align: center;">Démarrer mon estimation offerte</a>
+        </div>
     </div>
 
-    <div class="cities-nav">
-      <strong>Secteurs d'intervention :</strong>
-      <p style="margin-top: 10px;">
-        <a href="index.html">Moret-Loing-et-Orvanne</a> | 
-        <a href="ecuelles.html">Écuelles</a>
-      </p>
-    </div>
-  </div>
+    <footer>
+        <p>&copy; Michael HULAK — Agent commercial indépendant immatriculé au RSAC de Melun (N° 450 799 671) pour le réseau iad France.</p>
+    </footer>
 
-  <!-- BANDEAU FIXE MOBILE -->
-  <div class="mobile-contact-bar">
-    <a href="tel:0600000000" class="mobile-contact-btn btn-tel">
-      📞 Appeler
-    </a>
-    <a href="mailto:michael.hulak@iadfrance.fr" class="mobile-contact-btn btn-mail">
-      ✉️ E-mail
-    </a>
-  </div>
+    <!-- SCRIPT DU TUNNEL & POP-UP DE SORTIE -->
+    <script>
+        let currentStep = 1;
+        const totalSteps = 6;
 
+        function updateProgress() {
+            const percentage = (currentStep / totalSteps) * 100;
+            document.getElementById('progressBar').style.width = percentage + '%';
+        }
+
+        function showStep(step) {
+            document.querySelectorAll('.funnel-step').forEach(s => s.classList.remove('active'));
+            document.querySelector(`.funnel-step[data-step="${step}"]`).classList.add('active');
+            updateProgress();
+        }
+
+        function selectOption(inputGroup, value, step) {
+            document.getElementById(`${inputGroup}_input`).value = value;
+            nextStep(step);
+        }
+
+        function nextStep(step) {
+            if (step === 3 && !document.getElementById('surface_input').value) {
+                alert('Veuillez indiquer la surface approximative.');
+                return;
+            }
+            if (step === 5 && !document.getElementById('commune_input').value) {
+                alert('Veuillez indiquer la commune.');
+                return;
+            }
+            if (currentStep < totalSteps) {
+                currentStep++;
+                showStep(currentStep);
+            }
+        }
+
+        function prevStep(step) {
+            if (currentStep > 1) {
+                currentStep--;
+                showStep(currentStep);
+            }
+        }
+
+        // Soumission AJAX Formspree
+        const form = document.getElementById('funnelForm');
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            btn.textContent = "Transmission en cours...";
+
+            fetch(form.action, {
+                method: form.method,
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            }).then(function(response) {
+                if (response.ok) {
+                    form.style.display = "none";
+                    document.getElementById('funnelSuccess').style.display = "block";
+                } else {
+                    alert("Une erreur est survenue lors de la transmission. Veuillez réessayer.");
+                    btn.disabled = false;
+                    btn.textContent = "Recevoir mon estimation";
+                }
+            }).catch(function(error) {
+                alert("Erreur de connexion. Veuillez réessayer.");
+                btn.disabled = false;
+                btn.textContent = "Recevoir mon estimation";
+            });
+        });
+
+        // POP-UP DE SORTIE (EXIT INTENT)
+        let exitShown = false;
+        document.addEventListener("mouseleave", function(e) {
+            if (e.clientY < 0 && !exitShown) {
+                exitShown = true;
+                document.getElementById("exitModal").style.display = "flex";
+            }
+        });
+
+        function closeExitModal() {
+            document.getElementById("exitModal").style.display = "none";
+        }
+    </script>
 </body>
 </html>
