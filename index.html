@@ -72,7 +72,8 @@
         { "@type": "AdministrativeArea", "name": "Montigny-sur-Loing" }
       ],
       "sameAs": [
-        "https://www.iadfrance.fr/conseiller-immobilier/michael.hulak"
+        "https://www.iadfrance.fr/conseiller-immobilier/michael.hulak",
+        "https://www.immodvisor.com/pro/iad-france-michael-hulak-moret-loing-et-orvanne-77250.html"
       ],
       "priceRange": "€€"
     }
@@ -116,7 +117,7 @@
             text-align: center;
             border-bottom: 2px solid var(--prestige-champagne);
         }
-        .hero-content { max-width: 850px; margin: 0 auto; }
+        .hero-content { max-width: 900px; margin: 0 auto; }
         .agent-photo { 
             width: 155px; 
             height: 155px; 
@@ -150,21 +151,26 @@
             color: var(--prestige-champagne);
             margin-bottom: 20px;
             font-weight: 600;
+            flex-wrap: wrap;
+        }
+        .trust-line a {
+            color: var(--prestige-champagne);
+            text-decoration: underline;
         }
 
         h1 { font-size: 2.5rem; margin-bottom: 12px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; }
         p.subtitle { font-size: 1.15rem; color: #cbd5e1; margin-bottom: 30px; font-weight: 300; }
-        .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+        .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
         .btn { 
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            padding: 14px 28px; 
+            padding: 12px 22px; 
             border-radius: 8px; 
             text-decoration: none; 
             font-weight: 700; 
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             border: none; 
             cursor: pointer; 
             transition: all 0.3s ease; 
@@ -175,6 +181,8 @@
         .btn-secondary:hover { background-color: rgba(255, 255, 255, 0.1); border-color: #ffffff; transform: translateY(-2px); }
         .btn-recrutement { background-color: rgba(197, 168, 128, 0.25); color: #ffffff; border: 1px solid var(--prestige-champagne); }
         .btn-recrutement:hover { background-color: var(--prestige-champagne); color: var(--iad-navy); transform: translateY(-2px); }
+        .btn-iad { background-color: var(--iad-navy); color: #ffffff; border: 1px solid var(--iad-blue); }
+        .btn-iad:hover { background-color: var(--iad-blue); transform: translateY(-2px); }
 
         /* Badges Métiers */
         .pillars-container {
@@ -420,7 +428,7 @@
             <div><span class="badge">iad France Prestige</span></div>
             
             <div class="trust-line">
-                <span>⭐ 5.0 / 5 (Avis certifiés)</span>
+                <span>⭐ 5.0 / 5 (Avis Immodvisor & iad)</span>
                 <span>•</span>
                 <span>RSAC Melun 450 799 671</span>
             </div>
@@ -429,8 +437,9 @@
             <p class="subtitle">Conseiller & Expert Immobilier à Moret-Loing-et-Orvanne, Écuelles, Veneux-les-Sablons, Épisy, Montarlot, Saint-Mammès & environs</p>
             
             <div class="cta-buttons">
-                <a href="#quiz-estimation" class="btn btn-primary">🏡 Estimer mon bien (45 sec)</a>
-                <a href="mailto:michael.hulak@iadfrance.fr?subject=Rejoindre%20mon%20équipe%20iad%20-%20Demande%20d%27information" class="btn btn-recrutement">🚀 Rejoindre iad / Recrutement</a>
+                <a href="#quiz-estimation" class="btn btn-primary">🏡 Estimer mon bien</a>
+                <a href="https://www.iadfrance.fr/conseiller-immobilier/michael.hulak" target="_blank" rel="noopener" class="btn btn-iad">🌐 Mon Site iad France</a>
+                <a href="https://www.immodvisor.com/pro/iad-france-michael-hulak-moret-loing-et-orvanne-77250.html" target="_blank" rel="noopener" class="btn btn-recrutement">⭐ Avis Immodvisor</a>
                 <a href="tel:+33609208810" class="btn btn-secondary">📞 06 09 20 88 10</a>
             </div>
         </div>
@@ -638,9 +647,12 @@
                 <p class="review-author">— Client Vérifié</p>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 35px;">
+        <div style="text-align: center; margin-top: 35px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+            <a href="https://www.immodvisor.com/pro/iad-france-michael-hulak-moret-loing-et-orvanne-77250.html" target="_blank" rel="noopener" class="btn btn-recrutement">
+                ⭐ Voir mes avis Immodvisor
+            </a>
             <a href="https://www.iadfrance.fr/conseiller-immobilier/michael.hulak" target="_blank" rel="noopener" class="btn btn-secondary" style="color: #ffffff; border: 1px solid var(--iad-blue);">
-                ⭐ Consulter tous mes avis certifiés sur iad France
+                🌐 Consulter mon profil iad France
             </a>
         </div>
     </section>
@@ -775,4 +787,5 @@
     </script>
 </body>
 </html>
+
 
