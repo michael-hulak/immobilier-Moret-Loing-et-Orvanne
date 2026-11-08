@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avis de Valeur Expert Hybride — iad France</title>
+    <style>
+        :root {
+            --iad-blue: #002D62;
+            --iad-cyan: #0088cc;
+            --iad-light: #f0f4f8;
+            --bg-body: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #cbd5e1;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        body { background-color: var(--bg-body); color: var(--text-main); line-height: 1.6; padding: 30px 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        
+        header { background: var(--iad-blue); color: white; padding: 25px 35px; border-radius: 12px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border-bottom: 5px solid var(--iad-cyan); }
+        header div h1 { font-size: 1.4rem; font-weight: 700; }
+        header div p { font-size: 0.85rem; opacity: 0.85; margin-top: 4px; }
+
+        .btn-pdf { background: var(--iad-cyan); color: white; border: none; padding: 12px 22px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 4px 6px rgba(0, 136, 204, 0.2); }
+        .btn-pdf:hover { background: #0073b1; }
+
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        @media (max-width: 950px) { .grid { grid-template-columns: 1fr; } }
+
+        .card { background: var(--card-bg); border-radius: 12px; padding: 30px; border: 1px solid var(--border-color); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02); }
+        .card-title { font-size: 1.15rem; font-weight: 700; color: var(--iad-blue); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--iad-light); }
+
+        .form-group { margin-bottom: 14px; }
+        .form-group label { display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; color: var(--text-muted); text-transform: uppercase; }
+        .form-control { width: 100%; padding: 10px 14px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 0.95rem; outline: none; background: #fff; }
+        .form-control:focus { border-color: var(--iad-cyan); }
+        
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .form-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+
+        .btn-action { width: 100%; background: var(--iad-blue); color: white; padding: 14px; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; margin-top: 15px; }
+        .btn-action:hover { background: var(--iad-cyan); }
+
+        .result-box { background: var(--iad-light); border: 1px solid var(--border-color); border-radius: 10px; padding: 20px; margin-bottom: 20px; }
+        .result-title { font-size: 0.8rem; font-weight: 700; color: var(--iad-blue); text-transform: uppercase; }
+        .result-value { font-size: 2rem; font-weight: 800; color: var(--iad-cyan); margin: 6px 0; }
+        
+        .range-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; text-align: center; margin-top: 15px; }
+        .range-item { background: white; padding: 12px 8px; border-radius: 8px; border: 1px solid var(--border-color); }
+        .range-item span { display: block; font-size: 0.72rem; color: var(--text-muted); font-weight: 600; }
+        .range-item strong { font-size: 1.05rem; color: var(--text-main); }
+
+        .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
+        .metric-card { background: #f8fafc; border: 1px solid var(--border-color); padding: 15px; border-radius: 8px; }
+        .metric-card div { font-size: 0.78rem; color: var(--text-muted); font-weight: 600; }
+        .metric-card strong { font-size: 1.25rem; color: var(--iad-blue); }
+
+        .decomp-list { font-size: 0.85rem; color: var(--text-main); line-height: 1.8; margin-top: 10px; list-style: none; }
+        .decomp-list li { display: flex; justify-content: space-between; border-bottom: 1px dashed var(--border-color); padding-bottom: 4px; margin-bottom: 4px; }
+        .decomp-list li span { color: var(--text-muted); }
+
+        .print-header { display: none; }
+        .print-remarques { display: none; }
+        .print-copro { display: none; }
+        .print-ventilation { display: none; }
+
+        @media print {
+            body { background: white; padding: 0; color: #0f172a; font-size: 10pt; }
+            header, .btn-action, .no-print { display: none !important; }
+            .print-header { display: block; margin-bottom: 20px; border-bottom: 4px solid var(--iad-blue); padding-bottom: 15px; }
+            .print-brand { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+            .print-brand h1 { font-size: 1.5rem; color: var(--iad-blue); font-weight: 800; text-transform: uppercase; }
+            .print-badge { background: var(--iad-blue); color: white; padding: 6px 14px; font-size: 0.85rem; font-weight: bold; border-radius: 4px; }
+            .print-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-size: 0.85rem; background: var(--iad-light); padding: 12px; border-radius: 8px; border: 1px solid #cbd5e1; margin-bottom: 12px; }
+            .print-agent-box { background: #ffffff; padding: 12px 15px; border: 2px solid var(--iad-blue); border-radius: 8px; display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+            .print-agent-box .agent-info p { font-size: 0.85rem; margin-bottom: 2px; }
+            .print-agent-box .agent-logo { color: var(--iad-blue); font-weight: 800; font-size: 1.1rem; text-align: right; }
+            
+            .print-ventilation, .print-copro, .print-remarques { display: block !important; margin-top: 15px; padding: 12px; background: #f8fafc; border: 1px solid var(--border-color); border-radius: 8px; page-break-inside: avoid; }
+            .print-ventilation h3, .print-copro h3, .print-remarques h3 { font-size: 0.95rem; color: var(--iad-blue); margin-bottom: 6px; }
+            
+            .grid { display: block; }
+            .card { border: none; box-shadow: none; padding: 0; margin-bottom: 15px; page-break-inside: avoid; }
+            .card-title { font-size: 1.05rem; color: var(--iad-blue); border-bottom: 2px solid var(--iad-blue); padding-bottom: 4px; margin-bottom: 10px; }
+            .result-box { background: var(--iad-light) !important; border: 2px solid var(--iad-blue) !important; padding: 15px; }
+            .metric-card, .range-item { border: 1px solid var(--border-color) !important; background: #fff !important; }
+            .container { max-width: 100%; padding: 0; }
+            .footer-legal { display: block !important; margin-top: 20px; font-size: 0.7rem; color: var(--text-muted); text-align: center; border-top: 1px solid var(--border-color); padding-top: 8px; page-break-inside: avoid; }
+        }
+        .footer-legal { display: none; }
+    </style>
+</head>
+<body onload="lancerCalcul()">
+
+<div class="container">
+    <header>
+        <div>
+            <h1>Avis de Valeur Professionnel Hybride</h1>
+            <p>Réseau iad France — Expertise & Analyse de Marché Temps Réel</p>
+        </div>
+        <button type="button" class="btn-pdf" onclick="imprimerPDF()">📄 Exporter en Rapport PDF</button>
+    </header>
+
+    <div class="print-header">
+        <div class="print-brand">
+            <h1>Avis de Valeur Immobilier</h1>
+            <div class="print-badge">iad France</div>
+        </div>
+        <div class="print-meta">
+            <div>
+                <p><strong>Mandant / Client :</strong> <span id="printClient">--</span></p>
+                <p><strong>Adresse du Bien :</strong> <span id="printAdresse">--</span></p>
+            </div>
+            <div>
+                <p><strong>Date de l'étude :</strong> <span id="printDate">--</span></p>
+                <p><strong>Secteur de référence :</strong> <span id="printSecteurRef">--</span></p>
+            </div>
+        </div>
+        <div class="print-agent-box">
+            <div class="agent-info">
+                <p><strong>Conseiller Indépendant :</strong> <span id="printConseiller">Michael HULAK</span></p>
+                <p>📞 <strong>Téléphone :</strong> <span id="printTel">06 09 20 88 10</span> &nbsp;|&nbsp; ✉️ <strong>E-mail :</strong> <span id="printEmail">michael.hulak@iadfrance.fr</span></p>
+                <p>⚖️ <strong>RSAC :</strong> 450 799 671 &nbsp;|&nbsp; <strong>RCP :</strong> Conforme iad France</p>
+            </div>
+            <div class="agent-logo">iad<span style="color: var(--iad-cyan);">.</span></div>
+        </div>
+    </div>
+
+    <div class="grid">
+        <div class="card no-print">
+            <h2 class="card-title">1. Informations du Bien (Saisie Unique)</h2>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="nomClient">Nom & Prénom du Client</label>
+                    <input type="text" id="nomClient" class="form-control" value="M. et Mme Lecoq" oninput="lancerCalcul()">
+                </div>
+                <div class="form-group">
+                    <label for="nomConseiller">Conseiller iad France</label>
+                    <input type="text" id="nomConseiller" class="form-control" value="Michael HULAK" oninput="lancerCalcul()">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="telConseiller">Téléphone Pro</label>
+                    <input type="text" id="telConseiller" class="form-control" value="06 09 20 88 10" oninput="lancerCalcul()">
+                </div>
+                <div class="form-group">
+                    <label for="emailConseiller">E-mail Pro</label>
+                    <input type="text" id="emailConseiller" class="form-control" value="michael.hulak@iadfrance.fr" oninput="lancerCalcul()">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="adresse">Adresse complète du bien (Ville ou Code Postal)</label>
+                <input type="text" id="adresse" class="form-control" value="18 RUE JEAN JAURES 77160 SAINTE COLOMBE" onchange="traiterNouvelleAdresse()">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="typeBien">Type de bien</label>
+                    <select id="typeBien" class="form-control" onchange="changerTypeBien()">
+                        <option value="Maison" selected>Maison</option>
+                        <option value="Appartement">Appartement</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="secteurDetecte">Secteur & Source</label>
+                    <input type="text" id="secteurDetecte" class="form-control" value="Sainte-Colombe" readonly style="background:#f8fafc; font-weight:bold;">
+                </div>
+            </div>
+
+            <!-- BLOC COPROPRIÉTÉ AUTOMATIQUE -->
+            <div id="blocCopro" style="display: none; background: #f0f4f8; padding: 15px; border-radius: 8px; margin-bottom: 14px; border: 1px solid var(--border-color);">
+                <h3 style="font-size:0.85rem; color: var(--iad-blue); margin-bottom: 10px; text-transform: uppercase;">Données Copropriété</h3>
+                <div class="form-row">
+                    <div class="form-group" style="margin-bottom:0;">
+                        <label for="chargesCopro">Charges de Copro. (€ / an)</label>
+                        <input type="number" id="chargesCopro" class="form-control" value="1200" min="0" oninput="lancerCalcul()">
+                    </div>
+                    <div class="form-group" style="margin-bottom:0;">
+                        <label for="procedureCopro">Procédure en cours ?</label>
+                        <select id="procedureCopro" class="form-control" onchange="lancerCalcul()">
+                            <option value="non" selected>Non</option>
+                            <option value="oui">Oui (-5% valeur)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="nbChambres">Nombre de Chambres</label>
+                    <input type="number" id="nbChambres" class="form-control" value="4" min="1" oninput="lancerCalcul()">
+                </div>
+                <div class="form-group">
+                    <label for="typeBati">Architecture & Bâti</label>
+                    <select id="typeBati" class="form-control" style="font-weight:bold;" onchange="lancerCalcul()">
+                        <option value="pavillon_classique" selected>Pavillon classique / Moderne</option>
+                        <option value="ferme_a_renover">Corps de ferme — À rénover / Brut</option>
+                        <option value="ferme_renovee">Corps de ferme — Rénové (Cachet)</option>
+                    </select>
+                </div>
+            </div>
+
+            <h3 style="font-size:0.9rem; margin: 15px 0 10px; color: var(--iad-blue);">Surfaces, Dépendances & Annexes (m²)</h3>
+            <div class="form-row-3">
+                <div class="form-group">
+                    <label for="surfHab">Surf. Habitable</label>
+                    <input type="number" id="surfHab" class="form-control" value="175" min="0" oninput="lancerCalcul()">
+                </div>
+                <div class="form-group">
+                    <label for="surfTerrasse">Terrasse / Balcon (m²)</label>
+                    <input type="number" id="surfTerrasse" class="form-control" value="0" min="0" oninput="lancerCalcul()">
+                </div>
+                <div class="form-group">
+                    <label for="surfDependances">Dépendances (m²)</label>
+                    <input type="number" id="surfDependances" class="form-control" value="0" min="0" oninput="lancerCalcul()">
+                </div>
+            </div>
+
+            <div class="form-row-3">
+                <div class="form-group">
+                    <label for="surfJardin" id="labelJardin">Terrain / Jardin (m²)</label>
+                    <input type="number" id="surfJardin" class="form-control" value="2000" min="0" oninput="lancerCalcul()">
+                </div>
+                <div class="form-group">
+                    <label for="surfSousSol">Sous-sol / Cave (m²)</label>
+                    <input type="number" id="surfSousSol" class="form-control" value="0" min="0" oninput="lancerCalcul()">
+                </div>
+                <div class="form-group">
+                    <label for="typeSousSol">Statut Sous-sol / Cave</label>
+                    <select id="typeSousSol" class="form-control" onchange="lancerCalcul()">
+                        <option value="non_amenage" selected>Brut / Non aménagé (10%)</option>
+                        <option value="amenage_non_declare">Aménagé non déclaré (25%)</option>
+                        <option value="amenage_declare">Aménagé & Déclaré (50%)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- PISCINE -->
+            <div class="form-group">
+                <label for="valPiscine">Présence d'une Piscine</label>
+                <select id="valPiscine" class="form-control" onchange="lancerCalcul()">
+                    <option value="0" selected>Aucune piscine / Hors-sol (+0 €)</option>
+                    <option value="4000">Piscine semi-enterrée / Bois (+4 000 €)</option>
+                    <option value="12000">Piscine enterrée classique / Maçonnée (+12 000 €)</option>
+                    <option value="20000">Piscine haut de gamme (Chauffée / Couverte) (+20 000 €)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <label for="prixMarche">Prix M² Marché de Référence (€/m²)</label>
+                    <button type="button" onclick="traiterNouvelleAdresse(true)" style="background:none; border:none; color:var(--iad-cyan); font-size:0.75rem; cursor:pointer; font-weight:bold; text-decoration:underline;">🔄 Actualiser DVF</button>
+                </div>
+                <input type="number" id="prixMarche" class="form-control" value="1900" min="0" style="font-weight:bold; color:var(--iad-cyan);" oninput="lancerCalcul()">
+            </div>
+
+            <h3 style="font-size:0.9rem; margin: 15px 0 10px; color: var(--iad-blue);">Ajustements Qualitatifs Intérieur & Extérieur</h3>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="coeffEtatInterieur">État Général INTÉRIEUR</label>
+                    <select id="coeffEtatInterieur" class="form-control" onchange="lancerCalcul()">
+                        <option value="1.08">Refait à neuf / Haut de gamme (+8%)</option>
+                        <option value="1.00" selected>Bon état général (Neutre)</option>
+                        <option value="0.90">Rafraîchissement global (-10%)</option>
+                        <option value="0.75">Rénovation lourde (-25%)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="coeffEtatExterieur">État Général EXTÉRIEUR / IMMEUBLE</label>
+                    <select id="coeffEtatExterieur" class="form-control" onchange="lancerCalcul()">
+                        <option value="1.06">Parfait état / Récent (+6%)</option>
+                        <option value="1.00" selected>Bon état général (Neutre)</option>
+                        <option value="0.90">Entretien / Peinture (-10%)</option>
+                        <option value="0.78">Toiture / Gros œuvre / Façade (-22%)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="coeffDpe">Classe DPE</label>
+                    <select id="coeffDpe" class="form-control" onchange="lancerCalcul()">
+                        <option value="1.08">A (+8%)</option>
+                        <option value="1.05">B (+5%)</option>
+                        <option value="1.02" selected>C (+2%)</option>
+                        <option value="1.00">D (Neutre)</option>
+                        <option value="0.93">E (-7%)</option>
+                        <option value="0.85">F (-15%)</option>
+                        <option value="0.75">G (-25%)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="coeffAttrait">Situation / Atout</label>
+                    <select id="coeffAttrait" class="form-control" onchange="lancerCalcul()">
+                        <option value="1.05">Calme / Sans vis-à-vis (+5%)</option>
+                        <option value="1.00" selected>Standard (0%)</option>
+                        <option value="0.93">Nuisance / Vis-à-vis (-7%)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-top: 15px;">
+                <label for="remarquesBien">Remarques & Observations (visible sur le PDF)</label>
+                <textarea id="remarquesBien" class="form-control" rows="3" placeholder="Ex: Cuisine équipée récente, ascenseur, gardien..." oninput="mettreAJourRemarques()"></textarea>
+            </div>
+
+            <button type="button" class="btn-action" onclick="lancerCalcul()">Actualiser l'Expertise</button>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title">2. Synthèse & Ventilation Automatique</h2>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div>Surface Bâtie Pondérée</div>
+                    <strong id="resSurfPond">-- m²</strong>
+                </div>
+                <div class="metric-card">
+                    <div>Prix/m² Net Ajusté</div>
+                    <strong id="resPrixM2">-- €/m²</strong>
+                </div>
+            </div>
+
+            <div class="result-box">
+                <div class="result-title">Valeur Vénale Centrale (Bâti + Foncier + Équipements)</div>
+                <div class="result-value" id="resPrixCentral">-- €</div>
+                
+                <div class="range-grid">
+                    <div class="range-item">
+                        <span>Fourchette Basse (-6%)</span>
+                        <strong id="resPrixBas">-- €</strong>
+                    </div>
+                    <div class="range-item">
+                        <span>Valeur Centrale</span>
+                        <strong id="resPrixMid">-- €</strong>
+                    </div>
+                    <div class="range-item">
+                        <span>Fourchette Haute (+6%)</span>
+                        <strong id="resPrixHaut">-- €</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STRATÉGIE DE PRIX DE VENTE AUTOMATIQUE -->
+            <div class="result-box" style="background:#f0fdf4; border-color:#bbf7d0;">
+                <div class="result-title" style="color:#166534;">Stratégie de Présentation Conseillée (Mandat)</div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px;">
+                    <div>
+                        <span style="font-size:0.75rem; color:#15803d; font-weight:600; display:block;">Prix Affiché Conseillé (+5% négo)</span>
+                        <strong style="font-size:1.3rem; color:#166534;" id="resPrixAffiche">-- €</strong>
+                    </div>
+                    <div style="text-align:right;">
+                        <span style="font-size:0.75rem; color:#15803d; font-weight:600; display:block;">Prix Cible Net Vendeur</span>
+                        <strong style="font-size:1.3rem; color:#166534;" id="resPrixCible">-- €</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DÉCOMPOSITION AUTOMATIQUE DU PRIX -->
+            <div class="result-box" style="background:#ffffff; border-color:var(--border-color);">
+                <div class="result-title" style="color:var(--iad-blue);">Ventilation Mathématique Indiscutable</div>
+                <ul class="decomp-list">
+                    <li><span>1. Valorisation brute du bâti :</span> <strong id="decValBati">-- €</strong></li>
+                    <li><span>2. Valorisation du terrain/jardin :</span> <strong id="decValTerrain">-- €</strong></li>
+                    <li><span>3. Plus-value Équipement / Piscine :</span> <strong id="decValPiscine">-- €</strong></li>
+                    <li><span>4. Impact global des ajustements :</span> <strong id="decCoeffTotal">-- %</strong></li>
+                </ul>
+            </div>
+
+            <div class="result-box" style="background:#f8fafc; border-color:#cbd5e1;">
+                <div class="result-title" style="color:var(--iad-blue);">Valeur Locative & Rendement Brut</div>
+                <div class="result-value" style="color:var(--iad-cyan); font-size: 1.5rem;" id="resLoyer">-- € / mois</div>
+                <div style="font-size:0.85rem; color:#475569; margin-top:4px;">
+                    Rendement Brut Estimé : <strong id="resRendement">-- %</strong>
+                </div>
+            </div>
+
+            <div style="font-size:0.85rem; color:#475569; padding:12px; background:#f8fafc; border-radius:8px; margin-top:15px; border: 1px solid var(--border-color);">
+                <strong>Synthèse de la méthode :</strong> <span id="statusTxt">--</span>
+            </div>
+            
+            <button type="button" class="btn-pdf no-print" onclick="imprimerPDF()" style="margin-top: 25px; width: 100%; justify-content: center; padding: 14px;">
+                📄 Télécharger le Rapport PDF Pro
+            </button>
+        </div>
+    </div>
+
+    <!-- BLOCS SPÉCIFIQUES IMPRESSION PDF -->
+    <div class="print-ventilation" id="printVentilationBox">
+        <h3>Détail de la Décomposition Mathématique :</h3>
+        <p id="printVentilationTexte" style="white-space: pre-wrap; font-size: 0.85rem;">--</p>
+    </div>
+
+    <div class="print-copro" id="printCoproBox" style="display:none;">
+        <h3>Informations Copropriété :</h3>
+        <p id="printCoproTexte">--</p>
+    </div>
+
+    <div class="print-remarques" id="printRemarquesBox" style="display:none;">
+        <h3>Commentaires & Atouts du bien :</h3>
+        <p id="printRemarquesTexte">Aucune remarque spécifique saisie.</p>
+    </div>
+
+    <div class="footer-legal">
+        <p><strong>Avis de valeur indicatif</strong> établi par Michael HULAK, mandataire indépendant en immobilier pour le réseau iad France. Agent commercial mandataire en immobilier immatriculé au RSAC sous le numéro 450 799 671.</p>
+        <p>Cette estimation est réalisée à titre consultatif sur la base des données de marché comparables et des caractéristiques déclarées du bien.</p>
+    </div>
+</div>
+
+<script>
+    const REFERENTIEL_PRIX = [
+        { mots: ["fontainebleau", "77300"], maison: 4500, appartement: 4800, loyerAppt: 18.5, loyerMaison: 18.0, nom: "Fontainebleau" },
+        { mots: ["avon", "77210"], maison: 2900, appartement: 2950, loyerAppt: 16.0, loyerMaison: 16.5, nom: "Avon" },
+        { mots: ["thomery", "77810"], maison: 2750, appartement: 2800, loyerAppt: 14.5, loyerMaison: 16.5, nom: "Thomery" },
+        { mots: ["ecuelles", "écuelles", "77250"], maison: 2550, appartement: 2700, loyerAppt: 14.5, loyerMaison: 15.0, nom: "Écuelles" },
+        { mots: ["moret", "orvanne", "moret-loing-et-orvanne"], maison: 2550, appartement: 2700, loyerAppt: 14.5, loyerMaison: 15.0, nom: "Moret-Loing-et-Orvanne" },
+        { mots: ["saint-mammes", "saint mammes", "77670"], maison: 2450, appartement: 2500, loyerAppt: 14.0, loyerMaison: 14.5, nom: "Saint-Mammès" },
+        { mots: ["montereau", "montereau-fault-yonne", "77130"], maison: 1950, appartement: 1800, loyerAppt: 13.5, loyerMaison: 12.5, nom: "Montereau-Fault-Yonne" },
+        { mots: ["bray", "bray-sur-seine", "77480"], maison: 1750, appartement: 1900, loyerAppt: 12.5, loyerMaison: 11.8, nom: "Bray-sur-Seine" },
+        { mots: ["mouy", "mouy-sur-seine", "77480"], maison: 1650, appartement: 1750, loyerAppt: 12.0, loyerMaison: 11.5, nom: "Mouy-sur-Seine" },
+        { mots: ["montigny-le-guesdier", "montigny le guesdier", "77480"], maison: 1600, appartement: 1700, loyerAppt: 11.8, loyerMaison: 11.2, nom: "Montigny-le-Guesdier" },
+        { mots: ["mousseaux", "mousseaux-les-bray", "77480"], maison: 1850, appartement: 1750, loyerAppt: 12.0, loyerMaison: 11.5, nom: "Mousseaux-lès-Bray" },
+        { mots: ["soisy", "soisy-bouy", "77650"], maison: 1850, appartement: 1750, loyerAppt: 12.5, loyerMaison: 11.8, nom: "Soisy-Bouy" },
+        { mots: ["sainte colombe", "sainte-colombe", "77160"], maison: 1900, appartement: 1800, loyerAppt: 12.5, loyerMaison: 11.8, nom: "Sainte-Colombe" },
+        { mots: ["nemours", "77140"], maison: 2100, appartement: 1900, loyerAppt: 13.0, loyerMaison: 12.0, nom: "Nemours" },
+        { mots: ["varennes", "varennes-sur-seine", "77130"], maison: 2050, appartement: 1850, loyerAppt: 13.0, loyerMaison: 12.0, nom: "Varennes-sur-Seine" },
+        { mots: ["champagne", "champagne-sur-seine", "77430"], maison: 2200, appartement: 2000, loyerAppt: 13.5, loyerMaison: 12.5, nom: "Champagne-sur-Seine" },
+        { mots: ["vernou", "vernou-la-celle-sur-seine", "77670"], maison: 2400, appartement: 2200, loyerAppt: 14.0, loyerMaison: 13.5, nom: "Vernou-la-Celle-sur-Seine" },
+        { mots: ["melun", "77000"], maison: 2700, appartement: 2500, loyerAppt: 15.5, loyerMaison: 14.5, nom: "Melun" },
+        { mots: ["dammarie", "dammarie-les-lys", "77190"], maison: 2500, appartement: 2300, loyerAppt: 15.0, loyerMaison: 14.0, nom: "Dammarie-lès-Lys" },
+        { mots: ["le mee", "le mee-sur-seine", "77350"], maison: 2400, appartement: 2200, loyerAppt: 14.5, loyerMaison: 13.5, nom: "Le Mée-sur-Seine" },
+        { mots: ["faremoutiers", "77515"], maison: 2350, appartement: 2400, loyerAppt: 13.5, loyerMaison: 13.0, nom: "Faremoutiers" }
+    ];
+
+    let dernierSecteurActif = null;
+
+    function getValue(id, defaultValue = 0) {
+        const el = document.getElementById(id);
+        if (!el) return defaultValue;
+        const val = parseFloat(el.value);
+        return (isNaN(val) || val < 0) ? defaultValue : val;
+    }
+
+    function getText(id, defaultValue = "") {
+        const el = document.getElementById(id);
+        return el ? el.value : defaultValue;
+    }
+
+    function mettreAJourRemarques() {
+        const remarques = getText('remarquesBien').trim();
+        const box = document.getElementById('printRemarquesBox');
+        const txt = document.getElementById('printRemarquesTexte');
+        if (remarques !== "") {
+            txt.innerText = remarques;
+            box.style.display = 'block';
+        } else {
+            box.style.display = 'none';
+        }
+    }
+
+    function changerTypeBien() {
+        const typeBien = getText('typeBien', 'Maison');
+        const blocCopro = document.getElementById('blocCopro');
+        const labelJardin = document.getElementById('labelJardin');
+
+        if (typeBien === "Appartement") {
+            if (blocCopro) blocCopro.style.display = 'block';
+            if (labelJardin) labelJardin.innerText = "Jardin Privatif (m²)";
+        } else {
+            if (blocCopro) blocCopro.style.display = 'none';
+            if (labelJardin) labelJardin.innerText = "Terrain / Jardin (m²)";
+        }
+
+        traiterNouvelleAdresse();
+    }
+
+    // --- MODULE DE RECHERCHE HYBRIDE (API DVF ETALAB EN LIGNE + RECOURS LOCAL) ---
+    async function traiterNouvelleAdresse(forceRefresh = false) {
+        const adresse = getText('adresse').trim();
+        const typeBien = getText('typeBien', 'Maison');
+        if (!adresse) return;
+
+        // Étape 1 : Recherche en ligne via API Gouv
+        if (navigator.onLine) {
+            try {
+                const geoReq = await fetch(`https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(adresse)}&limit=1`);
+                if (geoReq.ok) {
+                    const geoRes = await geoReq.json();
+                    if (geoRes.features && geoRes.features.length > 0) {
+                        const feat = geoRes.features[0];
+                        const codeInsee = feat.properties.citycode;
+                        const nomVille = feat.properties.city;
+
+                        // Appel API DVF Etalab pour récupérer les ventes sur le code INSEE
+                        const dvfReq = await fetch(`https://api.cjoint.com/dvf/summary?code_insee=${codeInsee}`); // Simulation API DVF fallback
+                        let prixDvf = null;
+
+                        // Tentative via API Etalab officielle
+                        const etalabReq = await fetch(`https://app.dvf.api.gouv.fr/api/mutations3/?code_commune=${codeInsee}&nature_mutation=Vente`);
+                        if (etalabReq.ok) {
+                            const etalabRes = await etalabReq.json();
+                            if (etalabRes.mutations && etalabRes.mutations.length > 0) {
+                                let totalPrix = 0;
+                                let count = 0;
+                                etalabRes.mutations.forEach(m => {
+                                    if (m.valeur_fonciere > 10000 && m.surface_relle_bati > 10) {
+                                        const pM2 = m.valeur_fonciere / m.surface_relle_bati;
+                                        if (pM2 > 500 && pM2 < 12000) {
+                                            totalPrix += pM2;
+                                            count++;
+                                        }
+                                    }
+                                });
+                                if (count > 0) prixDvf = Math.round(totalPrix / count);
+                            }
+                        }
+
+                        if (prixDvf) {
+                            dernierSecteurActif = { nom: `${nomVille} [DVF En ligne]`, prix: prixDvf, loyerBase: typeBien === "Maison" ? 13.0 : 14.5 };
+                            document.getElementById('prixMarche').value = prixDvf;
+                            document.getElementById('secteurDetecte').value = dernierSecteurActif.nom;
+                            lancerCalcul();
+                            return;
+                        }
+                    }
+                }
+            } catch (err) {
+                console.warn("API DVF non joignable ou hors-ligne, bascule sur le référentiel local", err);
+            }
+        }
+
+        // Étape 2 : Recours sur le Référentiel Local si hors-ligne ou absence de données DVF
+        const secteurTrouve = identifierSecteurLocal(adresse, typeBien);
+        dernierSecteurActif = secteurTrouve;
+        document.getElementById('prixMarche').value = secteurTrouve.prix;
+        document.getElementById('secteurDetecte').value = secteurTrouve.nom + " [Référentiel Local]";
+        lancerCalcul();
+    }
+
+    function identifierSecteurLocal(adresse, typeBien) {
+        const adrLower = adresse.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        let secteurTrouve = null;
+
+        for (const zone of REFERENTIEL_PRIX) {
+            for (const mot of zone.mots) {
+                if (adrLower.includes(mot)) {
+                    const prixBase = (typeBien === "Maison") ? zone.maison : zone.appartement;
+                    const loyerBase = (typeBien === "Maison") ? zone.loyerMaison : zone.loyerAppt;
+                    secteurTrouve = { nom: zone.nom, prix: prixBase, loyerBase: loyerBase };
+                    break;
+                }
+            }
+            if (secteurTrouve) break;
+        }
+
+        if (!secteurTrouve) {
+            const cpMatch = adresse.match(/77\d{3}/);
+            const cpLabel = cpMatch ? ` (CP ${cpMatch[0]})` : "";
+            secteurTrouve = { 
+                nom: `Secteur Personnalisé${cpLabel}`, 
+                prix: typeBien === "Maison" ? 2100 : 2000, 
+                loyerBase: typeBien === "Maison" ? 13.0 : 14.0 
+            };
+        }
+        return secteurTrouve;
+    }
+
+    function lancerCalcul() {
+        try {
+            const adresse = getText('adresse');
+            const typeBien = getText('typeBien', 'Maison');
+            const typeBati = getText('typeBati', 'pavillon_classique');
+            
+            const surfHab = getValue('surfHab', 0);
+            const terrasse = getValue('surfTerrasse', 0);
+            const jardin = getValue('surfJardin', 0);
+            const dependances = getValue('surfDependances', 0);
+            const nbChambres = parseInt(getValue('nbChambres', 1)) || 1;
+            const sousSol = getValue('surfSousSol', 0);
+            const typeSousSol = getText('typeSousSol', 'non_amenage');
+            const valPiscine = getValue('valPiscine', 0);
+
+            const chargesCopro = getValue('chargesCopro', 0);
+            const procedureCopro = getText('procedureCopro', 'non');
+
+            // Métadonnées impression PDF
+            const printAdresse = document.getElementById('printAdresse');
+            if (printAdresse) printAdresse.innerText = adresse.trim() !== "" ? adresse : "Non renseignée";
+            
+            const printClient = document.getElementById('printClient');
+            if (printClient) printClient.innerText = getText('nomClient', 'Client Particulier').trim() || "Client Particulier";
+            
+            const printConseiller = document.getElementById('printConseiller');
+            if (printConseiller) printConseiller.innerText = getText('nomConseiller', 'Michael HULAK').trim() || "Michael HULAK";
+            
+            const printTel = document.getElementById('printTel');
+            if (printTel) printTel.innerText = getText('telConseiller', '06 09 20 88 10').trim() || "06 09 20 88 10";
+            
+            const printEmail = document.getElementById('printEmail');
+            if (printEmail) printEmail.innerText = getText('emailConseiller', 'michael.hulak@iadfrance.fr').trim() || "michael.hulak@iadfrance.fr";
+            
+            const printDate = document.getElementById('printDate');
+            if (printDate) printDate.innerText = new Date().toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' });
+
+            mettreAJourRemarques();
+
+            const coproBox = document.getElementById('printCoproBox');
+            const coproTxt = document.getElementById('printCoproTexte');
+            if (typeBien === "Appartement") {
+                const procTxt = (procedureCopro === "oui") ? "⚠️ Procédure en cours signalée (-5% impact valeur)" : "Aucune procédure signalée";
+                coproTxt.innerText = `Charges annuelles prévisionnelles : ${chargesCopro.toLocaleString('fr-FR')} €/an — ${procTxt}`;
+                coproBox.style.display = 'block';
+            } else {
+                coproBox.style.display = 'none';
+            }
+
+            const secteurActuel = dernierSecteurActif || identifierSecteurLocal(adresse, typeBien);
+            const printSecteurRef = document.getElementById('printSecteurRef');
+            if (printSecteurRef) printSecteurRef.innerText = secteurActuel.nom;
+
+            const prixM2Marche = getValue('prixMarche', secteurActuel.prix);
+            const coeffDpe = getValue('coeffDpe', 1.0);
+            const coeffInt = getValue('coeffEtatInterieur', 1.0);
+            const coeffExt = getValue('coeffEtatExterieur', 1.0);
+            const coeffAttrait = getValue('coeffAttrait', 1.0);
+            
+            let coeffBati = 1.00;
+            let batiLibelle = "Pavillon / Classique";
+            if (typeBati === "ferme_renovee") {
+                coeffBati = 1.08;
+                batiLibelle = "Corps de ferme rénové";
+            } else if (typeBati === "ferme_a_renover") {
+                coeffBati = 0.85;
+                batiLibelle = "Corps de ferme à rénover";
+            }
+
+            // IMPACT CHAMBRES CONTINU ET SUBTIL
+            let coeffChambres = 1.00;
+            if (surfHab > 0 && nbChambres > 0) {
+                const surfaceParChambre = surfHab / nbChambres;
+                if (surfaceParChambre >= 20 && surfaceParChambre <= 30) {
+                    coeffChambres = 1.02 + (0.005 * Math.min(nbChambres, 5));
+                } else if (surfaceParChambre >= 14 && surfaceParChambre < 20) {
+                    coeffChambres = 1.00 + (0.003 * nbChambres);
+                } else if (surfaceParChambre < 14) {
+                    const ecartExiguite = 14 - surfaceParChambre;
+                    coeffChambres = Math.max(0.90, 1.00 - (ecartExiguite * 0.008));
+                } else {
+                    const ecartGrandeur = surfaceParChambre - 30;
+                    coeffChambres = Math.max(0.94, 1.00 - (ecartGrandeur * 0.001));
+                }
+            }
+
+            // IMPACT CHARGES COPROPRIÉTÉ
+            let coeffChargesCopro = 1.00;
+            if (typeBien === "Appartement" && surfHab > 0 && chargesCopro > 0) {
+                const chargesParM2 = chargesCopro / surfHab;
+                if (chargesParM2 > 45) {
+                    coeffChargesCopro = 0.93;
+                } else if (chargesParM2 > 35) {
+                    coeffChargesCopro = 0.97;
+                } else if (chargesParM2 < 15) {
+                    coeffChargesCopro = 1.02;
+                }
+            }
+
+            let coeffCoproProc = 1.00;
+            if (typeBien === "Appartement" && procedureCopro === "oui") {
+                coeffCoproProc = 0.95;
+            }
+
+            let coeffSS = 0.10;
+            if (typeSousSol === "amenage_non_declare") coeffSS = 0.25;
+            else if (typeSousSol === "amenage_declare") coeffSS = 0.50;
+
+            // Surface pondérée du bâti
+            const depPond = dependances * 0.50;
+            const ssPond = sousSol * coeffSS;
+            const terrassePond = terrasse * 0.20;
+            
+            const surfPondBati = Math.round((surfHab + terrassePond + depPond + ssPond) * 10) / 10;
+            
+            // Coefficient global d'ajustement
+            const coeffGlobal = coeffDpe * coeffInt * coeffExt * coeffAttrait * coeffBati * coeffChambres * coeffChargesCopro * coeffCoproProc;
+            const prixM2Net = Math.round(prixM2Marche * coeffGlobal);
+
+            // Valeur vénale du bâti
+            const valBati = surfPondBati * prixM2Net;
+
+            // Valorisation du terrain
+            let valeurTotaleTerrain = 0;
+            if (typeBien === "Maison" && jardin > 0) {
+                const tr1 = Math.min(jardin, 500);
+                const tr2 = Math.max(0, jardin - 500);
+                valeurTotaleTerrain = (tr1 * 25) + (tr2 * 10);
+            } else if (typeBien !== "Maison" && jardin > 0) {
+                valeurTotaleTerrain = jardin * 40; 
+            }
+
+            // VALEUR CENTRALE INCLUANT BÂTI + TERRAIN + PISCINE
+            const valCentrale = Math.round((valBati + valeurTotaleTerrain + valPiscine) / 100) * 100;
+            const valBasse = Math.round((valCentrale * 0.94) / 100) * 100;
+            const valHaute = Math.round((valCentrale * 1.06) / 100) * 100;
+
+            // STRATÉGIE DE MANDAT (Prix affiché avec marge de 5%)
+            const prixAffiche = Math.round((valCentrale * 1.05) / 1000) * 1000;
+
+            // --- CALCUL LOCATIF ---
+            let coeffSurfLoc = 1.0;
+            if (surfHab <= 25) coeffSurfLoc = 1.30;
+            else if (surfHab <= 45) coeffSurfLoc = 1.15;
+            else if (surfHab <= 75) coeffSurfLoc = 1.02;
+            else if (surfHab <= 110) coeffSurfLoc = 0.90;
+            else coeffSurfLoc = 0.80;
+
+            let coeffIntLoc = 1.0;
+            if (coeffInt >= 1.08) coeffIntLoc = 1.06;
+            else if (coeffInt < 1.0) coeffIntLoc = coeffInt;
+
+            const loyerM2Net = (secteurActuel.loyerBase || 13.0) * coeffSurfLoc * coeffDpe * coeffIntLoc;
+            const loyerMensuel = Math.round(surfHab * loyerM2Net);
+            const rendementBrut = valCentrale > 0 ? ((loyerMensuel * 12) / valCentrale * 100).toFixed(2) : "0.00";
+
+            // AFFICHAGE DES RÉSULTATS
+            const libelleExt = (jardin > 0) ? ` (+ ${jardin} m² ext.)` : "";
+            document.getElementById('resSurfPond').innerText = `${surfPondBati} m² bâti${libelleExt}`;
+            document.getElementById('resPrixM2').innerText = `${prixM2Net.toLocaleString('fr-FR')} €/m²`;
+            document.getElementById('resPrixCentral').innerText = `${valCentrale.toLocaleString('fr-FR')} €`;
+            document.getElementById('resPrixBas').innerText = `${valBasse.toLocaleString('fr-FR')} €`;
+            document.getElementById('resPrixMid').innerText = `${valCentrale.toLocaleString('fr-FR')} €`;
+            document.getElementById('resPrixHaut').innerText = `${valHaute.toLocaleString('fr-FR')} €`;
+            document.getElementById('resPrixCible').innerText = `${valCentrale.toLocaleString('fr-FR')} €`;
+            document.getElementById('resPrixAffiche').innerText = `${prixAffiche.toLocaleString('fr-FR')} €`;
+            document.getElementById('resLoyer').innerText = `${loyerMensuel.toLocaleString('fr-FR')} € / mois`;
+            document.getElementById('resRendement').innerText = `${rendementBrut} %`;
+
+            // DECOMPOSITION
+            const pctAjustement = ((coeffGlobal - 1) * 100).toFixed(1);
+            const signePct = pctAjustement >= 0 ? `+${pctAjustement}` : pctAjustement;
+            document.getElementById('decValBati').innerText = `${valBati.toLocaleString('fr-FR')} €`;
+            document.getElementById('decValTerrain').innerText = `${valeurTotaleTerrain.toLocaleString('fr-FR')} €`;
+            document.getElementById('decValPiscine').innerText = `${valPiscine.toLocaleString('fr-FR')} €`;
+            document.getElementById('decCoeffTotal').innerText = `${signePct} %`;
+
+            // VENTILATION TEXTE PDF
+            const printVent = document.getElementById('printVentilationTexte');
+            if (printVent) {
+                const txtPiscine = (valPiscine > 0) ? `\n• Valorisation Forfaitaire de la Piscine / Équipement : +${valPiscine.toLocaleString('fr-FR')} €` : "";
+                printVent.innerText = `• Valeur Net Bâti (${surfPondBati} m² pondérés × ${prixM2Net.toLocaleString('fr-FR')} €/m²) : ${valBati.toLocaleString('fr-FR')} €\n` +
+                                     `• Valorisation de l'Extérieur / Terrain (${jardin} m²) : ${valeurTotaleTerrain.toLocaleString('fr-FR')} €` +
+                                     `${txtPiscine}\n` +
+                                     `• Ajustement qualitatif global appliqué au secteur (${prixM2Marche} €/m² de base) : ${signePct} %`;
+            }
+
+            const infoCoproTxt = (typeBien === "Appartement") ? `, charges: ${chargesCopro} €/an` : "";
+            document.getElementById('statusTxt').innerText = `${secteurActuel.nom} [${typeBien}] — ${batiLibelle} (${nbChambres} ch.${infoCoproTxt})`;
+        } catch (err) {
+            console.error("Erreur d'exécution :", err);
+        }
+    }
+
+    function imprimerPDF() {
+        lancerCalcul();
+        setTimeout(() => {
+            window.print();
+        }, 150);
+    }
+</script>
+
+</body>
+</html>
