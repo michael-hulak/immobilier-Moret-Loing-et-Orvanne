@@ -8,20 +8,6 @@
     <meta name="description" content="Estimation immobilière offerte et vente de maisons ou appartements à Moret-Loing-et-Orvanne, Écuelles, Veneux-les-Sablons, Saint-Mammès, Épisy et Montarlot. Michael Hulak, conseiller immobilier iad France (5/5 sur 43 avis). Contact : 06 09 20 88 10.">
     <meta name="robots" content="index, follow">
 
-    <!-- Configuration globale iad / Formspree -->
-    <script>
-        window.iad_config = {
-            formspreeUrl: "https://formspree.io/f/xvkggpzk",
-            agentName: "Michael HULAK",
-            agentEmail: "michael.hulak@iadfrance.fr",
-            agentPhone: "+33609208810",
-            rsac: "Melun 450 799 671"
-        };
-    </script>
-
-    <!-- Scripts externes -->
-    <script src="https://cdn.jsdelivr.net/npm/@formspree/core@2.0.0/dist/formspree.umd.js" defer></script>
-
     <!-- Open Graph / Réseaux Sociaux -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Estimation Immobilière Moret-Loing-et-Orvanne &amp; Écuelles | Michael Hulak - iad France">
@@ -188,6 +174,8 @@
         .btn-recrutement:hover { background-color: var(--prestige-champagne); color: var(--iad-navy); transform: translateY(-2px); }
         .btn-iad { background-color: var(--iad-navy); color: #ffffff; border: 1px solid var(--iad-blue); }
         .btn-iad:hover { background-color: var(--iad-blue); transform: translateY(-2px); }
+        .btn-whatsapp { background-color: #25D366; color: #ffffff; }
+        .btn-whatsapp:hover { background-color: #1ebe5d; transform: translateY(-2px); }
 
         /* Badges Métiers */
         .pillars-container {
@@ -585,11 +573,9 @@
                 <!-- Étape 6 : Coordonnées (Conforme RGPD) -->
                 <div class="funnel-step" data-step="6">
                     <h3>6. Où dois-je vous envoyer votre étude personnalisée ?</h3>
-                    <input type="text" name="nom_complet" class="funnel-input" placeholder="Votre nom complet" required>
-                    <input type="email" name="email" class="funnel-input" placeholder="Votre adresse email" required>
-                    <input type="tel" name="telephone" class="funnel-input" placeholder="Votre numéro de téléphone" required>
-                    
-                    <input type="text" name="_gotcha" style="display:none !important;" tabindex="-1" autocomplete="off">
+                    <input type="text" name="nom_complet" id="nom_input" class="funnel-input" placeholder="Votre nom complet" required>
+                    <input type="email" name="email" id="email_input" class="funnel-input" placeholder="Votre adresse email" required>
+                    <input type="tel" name="telephone" id="tel_input" class="funnel-input" placeholder="Votre numéro de téléphone" required>
 
                     <p style="font-size: 0.75rem; color: #64748b; margin-bottom: 15px; text-align: left;">
                         * En soumettant ce formulaire, vous acceptez que les informations saisies soient exploitées par Michael Hulak (iad France) dans le cadre de votre demande d'estimation et de la relation commerciale qui peut en découler. Vos données ne seront jamais revendues.
@@ -606,7 +592,8 @@
             <div id="funnelSuccess" style="display:none; text-align:center; padding: 30px 10px;">
                 <div style="font-size: 3rem; margin-bottom: 15px;">✅</div>
                 <h3 style="color: var(--iad-navy); font-size: 1.6rem; margin-bottom: 10px;">Merci pour votre confiance !</h3>
-                <p style="color: #64748b; font-size: 1.05rem;">Votre demande d'estimation a bien été transmise. Je prends connaissance de votre dossier et vous recontacte rapidement.</p>
+                <p style="color: #64748b; font-size: 1.05rem; margin-bottom: 20px;">Votre demande d'estimation a bien été transmise. Je prends connaissance de votre dossier et vous recontacte rapidement.</p>
+                <a id="whatsappRecapBtn" href="https://wa.me/33609208810" target="_blank" rel="noopener" class="btn btn-whatsapp" style="width: 100%; max-width: 380px;">💬 Doubler ma demande par WhatsApp (réponse rapide)</a>
             </div>
         </div>
     </section>
@@ -730,10 +717,17 @@
         <p>&copy; Michael HULAK — Agent commercial indépendant immatriculé au RSAC de Melun (N° 450 799 671) pour le réseau iad France.</p>
     </footer>
 
-    <!-- SCRIPT DU TUNNEL & POP-UP DE SORTIE (DESKTOP + MOBILE) -->
+    <!-- SCRIPT DU TUNNEL AVEC PRÉ-RÉVEIL SERVEUR & RELANCE AUTOMATIQUE -->
     <script>
         let currentStep = 1;
         const totalSteps = 6;
+        let serverWarmedUp = false;
+
+        function wakeUpServer() {
+            if (serverWarmedUp) return;
+            serverWarmedUp = true;
+            fetch("https://formspree.io/f/xvkggpzk", { method: "HEAD", mode: "no-cors" }).catch(function() {});
+        }
 
         function updateProgress() {
             const percentage = (currentStep / totalSteps) * 100;
@@ -744,6 +738,9 @@
             document.querySelectorAll('.funnel-step').forEach(s => s.classList.remove('active'));
             document.querySelector(`.funnel-step[data-step="${step}"]`).classList.add('active');
             updateProgress();
+            if (step >= 4) {
+                wakeUpServer();
+            }
         }
 
         function selectOption(inputGroup, value, step) {
@@ -780,7 +777,48 @@
             }
         }
 
-        // Soumission AJAX Formspree
+        function buildWhatsappLink() {
+            const typeBien = document.getElementById('type_bien_input').value || '';
+            const pieces = document.getElementById('pieces_input').value || '';
+            const surface = document.getElementById('surface_input').value || '';
+            const delai = document.getElementById('delai_input').value || '';
+            const commune = document.getElementById('commune_input').value || '';
+            const nom = document.getElementById('nom_input').value || '';
+            const tel = document.getElementById('tel_input').value || '';
+
+            const message = "Bonjour Michael, je souhaite une estimation pour mon bien :\n"
+                + "- Type : " + typeBien + "\n"
+                + "- Pièces : " + pieces + "\n"
+                + "- Surface : " + surface + " m²\n"
+                + "- Délai : " + delai + "\n"
+                + "- Commune : " + commune + "\n"
+                + "- Nom : " + nom + " (" + tel + ")";
+
+            document.getElementById('whatsappRecapBtn').href = "https://wa.me/33609208810?text=" + encodeURIComponent(message);
+        }
+
+        function sendFormWithRetry(form, attempt) {
+            return fetch(form.action, {
+                method: "POST",
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            }).then(function(response) {
+                if (!response.ok) {
+                    throw new Error("Erreur serveur");
+                }
+                return response;
+            }).catch(function(err) {
+                if (attempt < 2) {
+                    return new Promise(function(resolve) {
+                        setTimeout(resolve, 1500);
+                    }).then(function() {
+                        return sendFormWithRetry(form, attempt + 1);
+                    });
+                }
+                throw err;
+            });
+        }
+
         const form = document.getElementById('funnelForm');
         form.addEventListener("submit", function(e) {
             e.preventDefault();
@@ -788,21 +826,14 @@
             btn.disabled = true;
             btn.textContent = "Transmission en cours...";
 
-            fetch(form.action, {
-                method: form.method,
-                body: new FormData(form),
-                headers: { 'Accept': 'application/json' }
-            }).then(function(response) {
-                if (response.ok) {
-                    form.style.display = "none";
-                    document.getElementById('funnelSuccess').style.display = "block";
-                } else {
-                    alert("Une erreur est survenue lors de la transmission. Veuillez réessayer.");
-                    btn.disabled = false;
-                    btn.textContent = "Recevoir mon estimation offerte";
-                }
-            }).catch(function(error) {
-                alert("Erreur de connexion. Veuillez réessayer.");
+            sendFormWithRetry(form, 1).then(function() {
+                buildWhatsappLink();
+                form.style.display = "none";
+                document.getElementById('funnelSuccess').style.display = "block";
+            }).catch(function() {
+                buildWhatsappLink();
+                alert("Le serveur met un peu de temps à répondre. Cliquez sur OK pour finaliser votre demande directement par WhatsApp.");
+                window.open(document.getElementById('whatsappRecapBtn').href, "_blank");
                 btn.disabled = false;
                 btn.textContent = "Recevoir mon estimation offerte";
             });
@@ -811,7 +842,6 @@
         // POP-UP DE SORTIE (EXIT INTENT DESKTOP & TEMPO MOBILE)
         let exitShown = false;
 
-        // Desktop : Sortie de curseur
         document.addEventListener("mouseleave", function(e) {
             if (e.clientY < 0 && !exitShown) {
                 exitShown = true;
@@ -819,7 +849,6 @@
             }
         });
 
-        // Mobile : Déclenchement après 45 secondes d'inactivité si non soumis
         setTimeout(function() {
             if (!exitShown && currentStep === 1) {
                 exitShown = true;
@@ -833,5 +862,3 @@
     </script>
 </body>
 </html>
-
-
